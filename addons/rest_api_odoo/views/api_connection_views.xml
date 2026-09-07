@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_rest_api_connection_form" model="ir.ui.view">
+        <field name="name">rest.api.connection.form</field>
+        <field name="model">rest.api.connection</field>
+        <field name="arch" type="xml">
+            <form string="API Connection">
+                <header>
+                    <button name="action_test_connection" string="Test Connection" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Connection Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="server_url"/>
+                            <field name="server_port"/>
+                            <field name="db_name"/>
+                        </group>
+                        <group>
+                            <field name="db_username"/>
+                            <field name="db_password" password="True"/>
+                            <field name="api_key"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Result">
+                            <field name="result" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_rest_api_connection_tree" model="ir.ui.view">
+        <field name="name">rest.api.connection.tree</field>
+        <field name="model">rest.api.connection</field>
+        <field name="arch" type="xml">
+            <tree string="API Connections">
+                <field name="name"/>
+                <field name="db_name"/>
+                <field name="server_url"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_rest_api_connection" model="ir.actions.act_window">
+        <field name="name">Connections</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rest.api.connection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <!-- Assuming creating a 'Configuration' menu under the main 'Rest API' app menu -->
+    <!-- existing main menu id is 'rest_api_root' from connection_api_views.xml -->
+    
+    <menuitem id="menu_rest_api_configuration"
+              name="Configuration"
+              parent="rest_api_root"
+              sequence="20"/>
+
+    <menuitem id="menu_rest_api_connection"
+              name="Add Connection"
+              parent="menu_rest_api_configuration"
+              action="action_rest_api_connection"
+              sequence="10"/>
+
+</odoo>

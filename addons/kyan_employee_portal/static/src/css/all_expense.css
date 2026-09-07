@@ -1,0 +1,92 @@
+
+           .breadcrumb>li+li:before {
+                content: "" !important;
+            }
+
+            .breadcrumb {
+                padding: 10px;
+                font-size: 14px;
+                color: #aaa !important;
+                letter-spacing: 2px;
+                border-radius: 5px !important;
+            }
+
+
+            .first ol {
+                border-top-right-radius: 200px !important;
+                border-bottom-right-radius: 200px !important;
+            }
+
+
+
+            .first-1 {
+                background-color: white !important;
+            }
+
+            a {
+                text-decoration: none !important;
+                color: #aaa !important;
+            }
+
+            a:focus,
+            a:active {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+
+            img {
+                vertical-align: bottom;
+            }
+
+            .first span {
+                color: white;
+            }
+
+            .active-1 {
+                font-size: 13px !important;
+                padding-bottom: 0px !important;
+                padding-top: 0px !important;
+                padding-right: 0px !important;
+                padding-left: 0px !important;
+                border-radius: 200px !important;
+                background-color: white !important;
+            }
+
+
+            .first ol {
+                background-color: rgb(51, 0, 80) !important;
+            }
+
+            @media (max-width: 767px) {
+                .breadcrumb {
+                    font-size: 10px;
+
+                }
+
+                .breadcrumb-item+.breadcrumb-item {
+                    padding-left: 0;
+                }
+
+
+                img {
+                    width: 6px;
+                    height: 6px;
+                    vertical-align: middle;
+                }
+
+                .active-1 {
+                    font-size: 10px !important;
+                    padding-right: 8px !important;
+                    padding-left: 8px !important;
+                    width: 100% ! important;
+                }
+
+                .breadcrumb {
+                    letter-spacing: 1px !important;
+                }
+
+                .breadcrumb>* div {
+                    max-width: 60px;
+                }
+            }

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_view_expense_request" name="View Expense Request" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+                <link rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+                <t t-call-assets="kyan_employee_portal.assets_frontend"/>
+            </head>
+            <body>
+                <t t-call="kyan_employee_portal.portal_navigation"/>
+                <div class="container">
+                    <!-- Expense Details -->
+                    <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">Expense Details</h4>
+                    <hr/>
+                    <div class="mian_content mt-n2 mt-n2 mt-md-5 mt-md-5 ml-md-5">
+                        <div class="form-row">
+                            <div class="form-group col-md-4 px-3">
+                                <label for="employee_name" class="form1-label-colors">Name</label>
+                                <input type="text" t-att-value="expense.name" class="form-control"
+                                       id="employee_name" placeholder="" disabled="disabled"/>
+                            </div>
+                            <div class="form-group col-md-4 px-3">
+                                <label for="employee_id" class="form1-label-colors">Expense Date</label>
+                                <input type="text" t-att-value="expense.date" class="form-control"
+                                       id="employee_id" placeholder="" disabled="disabled"/>
+                            </div>
+                            <div class="form-group col-md-4 px-3">
+                                <label for="status" class="form1-label-colors">Paid By</label>
+                                <input type="text"
+                                       t-att-value="dict(expense._fields['payment_mode'].selection).get(expense.payment_mode)"
+                                       class="form-control"
+                                       id="paid_by"
+                                       disabled="disabled"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4 px-3">
+                                <label for="employee_name" class="form1-label-colors">Name</label>
+                                <input type="text" t-att-value="expense.company_id.name" class="form-control"
+                                       id="employee_name" placeholder="" disabled="disabled"/>
+                            </div>
+                            <div class="form-group col-md-4 px-3">
+                                <label for="employee_id" class="form1-label-colors">Expense Date</label>
+                                <input type="text" t-att-value="expense.total_amount" class="form-control"
+                                       id="employee_id" placeholder="" disabled="disabled"/>
+                            </div>
+                            <div class="form-group col-md-4 px-3">
+                                <label for="status" class="form1-label-colors">Status:</label>
+                                <input type="text"
+                                       t-att-value="dict(expense._fields['state'].selection).get(expense.state)"
+                                       class="form-control"
+                                       id="status"
+                                       disabled="disabled"/>
+                            </div>
+
+
+                            <!--                            <div class="form-group col-md-4 px-3">-->
+                            <!--                                <label for="paid_by" class="form1-label-colors">Paid By</label>-->
+                            <!--                                <input type="text" t-att-value="expense.state" class="form-control"-->
+                            <!--                                       id="paid_by" placeholder="" disabled="disabled"/>-->
+                            <!--                            </div>-->
+                        </div>
+                        <!-- Message Section -->
+                        <div class="form-row">
+                            <div class="form-group col-md-12 px-3">
+                                <!-- Message Composer -->
+                                <div class="o_portal_chatter_composer mb-4">
+                                    <form id="message_form" t-attf-action="/expense/post_message/#{expense.id}"
+                                          method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="message" id="message_content" rows="3"
+                                                      placeholder="Send a message..."></textarea>
+                                            <div id="message_error"
+                                                 class="text-danger mt-2"></div> <!-- Error message container -->
+                                        </div>
+                                        <div class="col-md-12 text-right">
+                                            <button type="submit" class="btn btn-primary"
+                                                    style="background-color: #345E90;"
+                                                    t-att-data-expense-id="expense.id">Send Message
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Toast container -->
+                        <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+                        <hr style="background-color: #345E90;"></hr>
+                        <!-- Attachment Section  -->
+                        <div class="form-row">
+                            <div class="form-group col-md-12 px-3">
+                                <form id="attachment_form"
+                                      t-attf-action="/expense/upload_attachment/#{expense.id}"
+                                      method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="csrf_token"
+                                           t-att-value="request.csrf_token()"/>
+
+                                    <div class="form-group">
+                                        <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                            <label for="attachment" class="custom_label_color">
+                                                Send Required Documents
+                                            </label>
+
+                                            <div class="custom-file">
+                                                <input type="file" name="attachment" id="attachment"
+                                                       class="custom-file-input"
+                                                       required="required"/>
+                                                <label class="custom-file-label form1-label-colors" for="attachment">
+                                                    Choose file...
+                                                </label>
+                                            </div>
+                                            <div class="error"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" class="btn btn-primary"
+                                                style="background-color : #345E90">Send
+                                            Attachment
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <hr style="background-color: #345E90;"></hr>
+                        <!-- Message List -->
+                        <div class="form-group col-md-12 px-3">
+                            <h4 style="color: #345E90;">Communication History</h4>
+                            <div class="o_portal_chatter_messages">
+                                <t t-foreach="expense.message_ids" t-as="message">
+                                    <div class="o_portal_chatter_message">
+                                        <div class="o_portal_chatter_message_title">
+                                            <span class="font-weight-bold" t-esc="message.author_id.name"/>
+                                        </div>
+                                        <div class="o_portal_chatter_message_info">
+                                            <span t-field="message.date" t-options='{"widget": "datetime"}'/>
+                                        </div>
+                                        <div class="o_portal_chatter_message_content mt-2">
+                                            <div t-raw="message.body"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"/>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+                <script type="module" src="/kyan_employee_portal/static/src/js/send_expense_details.js"/>
+                <script type="script" src="kyan_employee_portal/static/src/js/overlay.js"/>
+                <script>
+                    $(document).ready(function() {
+                    // Update the label with the name of the selected file
+                    $('#attachment').on('change', function() {
+                    var fileName = $(this).val().split('\\').pop(); // Get the file name
+                    $(this).siblings('.custom-file-label').addClass("selected").html(fileName); // Update the label
+                    });
+                    });
+
+                </script>
+            </body>
+        </t>
+    </template>
+</odoo>

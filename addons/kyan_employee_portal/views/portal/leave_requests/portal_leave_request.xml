@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_leave_request" name="Leave_request" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <t t-set="title">Leave Request</t>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+                <link rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+            </head>
+            <body>
+                <t t-call="kyan_employee_portal.portal_navigation"/>
+                <div class="content">
+                    <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">EMPLOYEE LEAVE REQUEST</h4>
+                    <p class="ml-2 ml-md-5 mt-n1 mt-md-0 subheading_text_control" style="color: #345E90;">Leave Request
+                    </p>
+                    <hr/>
+                    <div class="mian_content mt-5  mt-md-5 mt-md-5 ml-md-5">
+                        <h5 style="color: #345E90;" class="ml-3 ml-md-0">Leave Summary</h5>
+                        <div class="p-4 section-color">
+                            <div class="form-row">
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_id" class="form1-label-colors">Badge ID</label>
+                                    <input type="text" t-att-value="employee_info.barcode" class="form-control"
+                                           id="employee_id" placeholder="" disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_name" class="form1-label-colors">Employee Name</label>
+                                    <input type="text" t-att-value="employee_info.name" class="form-control"
+                                           id="employee_name" placeholder="" disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_position" class="form1-label-colors">Position</label>
+                                    <input type="text" t-att-value="employee_info.job_id.name" class="form-control"
+                                           id="employee_position" placeholder="" disabled="disabled"/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_department" class="form1-label-colors">Department
+                                    </label>
+                                    <input type="text" t-att-value="employee_info.department_id.name"
+                                           class="form-control" id="employee_department" placeholder=""
+                                           disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="remaining_leaves" class="form1-label-colors">
+                                        Accrual Annual Leaves
+                                    </label>
+                                    <input type="text" t-att-value="remaining_leaves"
+                                           class="form-control" id="remaining" placeholder=""
+                                           disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="total_leaves_duration" class="form1-label-colors">Consumed
+                                    </label>
+                                    <input type="text" t-att-value="total_leaves_duration"
+                                           class="form-control" id="remaining" placeholder=""
+                                           disabled="disabled"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--                    <div class="mian_content mt-5 mt-md-5 mt-md-5 ml-md-5">-->
+                    <!--                        <h5 style="color: #345E90;" class="ml-3 ml-md-0">Leave Summary</h5>-->
+                    <!--                        <div class="p-4 section-color">-->
+                    <!--                            <div class="form-row">-->
+                    <!--                                <div class="form-group col-md-4 px-3">-->
+                    <!--                                    <label-->
+                    <!--                                            for="employee_id"-->
+                    <!--                                            class="custom_label_color">Employee ID-->
+                    <!--                                    </label>-->
+                    <!--                                    <input type="text"-->
+                    <!--                                           t-att-value="employee_info.employee_id.id"-->
+                    <!--                                           class="form-control"-->
+                    <!--                                           id="employee_id"-->
+                    <!--                                           placeholder=""-->
+                    <!--                                           disabled="disabled"/>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="form-group col-md-4 px-3">-->
+                    <!--                                    <label for="employee_name"-->
+                    <!--                                           class="custom_label_color">Employee Name-->
+                    <!--                                    </label>-->
+                    <!--                                    <input type="text"-->
+                    <!--                                           t-att-value="employee_info.employee_id.name"-->
+                    <!--                                           class="form-control"-->
+                    <!--                                           id="employee_name"-->
+                    <!--                                           placeholder=""-->
+                    <!--                                           disabled="disabled"/>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="form-group col-md-4 px-3">-->
+                    <!--                                    <label for="employee_position"-->
+                    <!--                                           class="custom_label_color">Position-->
+                    <!--                                    </label>-->
+                    <!--                                    <input type="text"-->
+                    <!--                                           t-att-value="employee_info.employee_id.job_id.name"-->
+                    <!--                                           class="form-control"-->
+                    <!--                                           id="employee_position"-->
+                    <!--                                           placeholder=""-->
+                    <!--                                           disabled="disabled"/>-->
+                    <!--                                </div>-->
+
+
+                    <!--                            </div>-->
+                    <!--                            <div class="form-row">-->
+                    <!--                                <div class="form-group col-md-4 px-3">-->
+                    <!--                                    <label for="employee_department"-->
+                    <!--                                           class="custom_label_color">Department/College-->
+                    <!--                                    </label>-->
+                    <!--                                    <input type="text"-->
+                    <!--                                           t-att-value="employee_info.employee_id.department_id.name"-->
+                    <!--                                           class="form-control"-->
+                    <!--                                           id="employee_department"-->
+                    <!--                                           placeholder=""-->
+                    <!--                                           disabled="disabled"/>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="form-group col-12 col-md-4 pl-md-3  px-3 mt-n2 mt-md-0 ">-->
+                    <!--                                    <label for="remaining_leaves" class="custom_label_color">Balance Leaves-->
+                    <!--                                    </label>-->
+                    <!--                                    <input type="number" class="form-control form1-label-colors"-->
+                    <!--                                           id="remaining_leaves"-->
+                    <!--                                           t-att-value="remaining_leaves"-->
+                    <!--                                           disabled="disabled"-->
+                    <!--                                           placeholder=""/>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="mian_content mt-5 mt-md-5 mt-md-5 ml-md-5">
+                        <h5 style="color: #345E90;" class="ml-3 ml-md-0">Leave Policy</h5>
+                        <form id="leaveRequestForm">
+                            <div class="p-4 section-color">
+                                <div class="form-row">
+                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0 ">
+                                        <label for="leave_type" class="custom_label_color">
+                                            Leave Type
+                                        </label>
+
+                                        <select id="leave_type"
+                                                class="form-control form1-label-colors custom-select">
+                                            <option value=""
+                                                    t-att-selected="selected">
+                                                Select Leave Type
+                                            </option>
+                                            <t t-foreach="leave_types" t-as="option">
+                                                <option t-att-value="option.id">
+                                                    <t t-esc="option.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="leave_date_form" class="custom_label_color">From</label>
+                                        <input type="date" name="leave_date_form" id="leave_date_form"
+                                               class="form-control"
+                                               placeholder="From Date"/>
+                                        <div class="error"></div> <!-- Error display for 'expense_date' -->
+                                    </div>
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="leave_date_to" class="custom_label_color">To</label>
+                                        <input type="date" name="leave_date_to" id="leave_date_to" class="form-control"
+                                               placeholder="From Date"/>
+                                        <div class="error"></div> <!-- Error display for 'expense_date' -->
+                                    </div>
+                                </div>
+                                <div class="form-row ">
+                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                        <label for="leave_document_attachment"
+                                               class="custom_label_color">
+                                            Attachment
+                                        </label>
+
+                                        <div class="custom-file ">
+                                            <input type="file" class="custom-file-input form1-label-colors"
+                                                   id="leave_document_attachment"/>
+                                            <label class="custom-file-label form1-label-colors"
+                                                   for="qualification_document_attachment">
+                                                Choose file ...
+                                            </label>
+                                        </div>
+                                        <div class="error">
+                                        </div>
+                                    </div>
+                                    <!--                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0 ">-->
+                                    <!--                                        <label for="total_leave_days" class="custom_label_color">-->
+                                    <!--                                            No. Of Days-->
+                                    <!--                                        </label>-->
+                                    <!--                                        <input type="number" class="form-control form1-label-colors"-->
+                                    <!--                                               id="total_leave_days"-->
+                                    <!--                                               placeholder="0"-->
+                                    <!--                                               disabled="disabled"/>-->
+                                    <!--                                        <div class="error">-->
+
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12  pl-md-3 mt-n2 mt-md-0">
+                                        <label for="leave_description" class="custom_label_color">Reason, Justification
+                                            and supporting documents are required for other than Annual Leaves
+                                        </label>
+                                        <textarea class="form-control form1-label-colors" id="leave_description"
+                                                  rows="3"/>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row pr-2 pr-md-2 pt-2 justify-content-end">
+                                <div class="col-4 text-right">
+                                    <!--                                        <button type="submit" class="btn" style="background:#345E90; color:#fff">Back To List</button>-->
+                                    <a t-attf-href="/leave_requests_details" class="btn btn-primary"
+                                       style="background:#345E90; color:#fff;">
+                                        Back to List
+                                    </a>
+                                    <button type="submit" class="btn" style="background:#345E90; color:#fff">Create
+                                        Request
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"/>
+                <script type="module" src="/kyan_employee_portal/static/src/js/leave_requests.js"/>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"/>
+
+            </body>
+        </t>
+    </template>
+</odoo>

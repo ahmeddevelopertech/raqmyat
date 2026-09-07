@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_salary_advance_request" name="Requisition_request" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <t t-set="title">Salary Advance Request</t>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+                <link rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+            </head>
+            <body>
+                <t t-call="kyan_employee_portal.portal_navigation"/>
+                <div class="content">
+                    <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">SALARY ADVANCE REQUEST</h4>
+                    <p class="ml-2 ml-md-5 mt-n1 mt-md-0 subheading_text_control" style="color: #345E90;">
+                        Salary Advance Request
+                    </p>
+                    <hr/>
+                    <div class="mian_content mt-5  mt-md-5 mt-md-5 ml-md-5">
+                        <h5 style="color: #345E90;" class="ml-3 ml-md-0">Requested By</h5>
+                        <div class="p-4 section-color">
+                            <div class="form-row">
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_id" class="form1-label-colors">Badge ID</label>
+                                    <input type="text" t-att-value="employee_info.barcode" class="form-control"
+                                           id="employee_id" placeholder="" disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_name" class="form1-label-colors">Employee Name</label>
+                                    <input type="text" t-att-value="employee_info.name" class="form-control"
+                                           id="employee_name" placeholder="" disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_position" class="form1-label-colors">Position</label>
+                                    <input type="text" t-att-value="employee_info.job_id.name" class="form-control"
+                                           id="employee_position" placeholder="" disabled="disabled"/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_department" class="form1-label-colors">Department
+                                    </label>
+                                    <input type="text" t-att-value="employee_info.department_id.name"
+                                           class="form-control" id="employee_department" placeholder=""
+                                           disabled="disabled"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="loanSalaryRequestForm">
+                        <div class="mian_content mt-5 mt-5 ml-0 ml-md-5">
+                            <h5 style="color: #345E90;" class="ml-3 ml-md-0">Create Request</h5>
+                            <div class="section-color p-4">
+                                <div class="form-row mt-3">
+                                    <!--                                    <div class="form-group col-md-4 px-3">-->
+                                    <!--                                        <label for="product" class="custom_label_color">Salary Advance</label>-->
+                                    <!--                                        <select name="types" id="types" t-attf-class="form-control">-->
+                                    <!--                                            <option value="loan">Loan</option>-->
+                                    <!--                                            <option value="salary_advance">Salary Advance</option>-->
+                                    <!--                                        </select>-->
+                                    <!--                                        <div class="error"></div> &lt;!&ndash; Error display for 'product' &ndash;&gt;-->
+                                    <!--                                    </div>-->
+
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="product" class="custom_label_color">Loan</label>
+                                        <select name="types" id="types" class="form-control" disabled="disabled">
+                                            <option value="loan">Loan</option>
+                                            <option value="salary_advance" selected="selected">Salary Advance</option>
+                                        </select>
+                                        <div class="error"></div> <!-- Error display for 'product' -->
+                                    </div>
+
+
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="date" class="custom_label_color">Date</label>
+                                        <input type="date" name="date" id="date" class="form-control"
+                                               placeholder="Date"/>
+                                        <div class="error"></div> <!-- Error display for 'expense_date' -->
+                                    </div>
+
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="hospital" class="custom_label_color">Salary Advance Amount</label>
+                                        <input type="number" name="loan_amount" id="loan_amount" class="form-control"
+                                               placeholder="Salary Advance Amount"/>
+                                        <div class="error"></div> <!-- Error display for 'quantity' -->
+                                    </div>
+                                </div>
+
+                                <div class="form-row mt-3">
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="installment" class="custom_label_color">No of Installments</label>
+                                        <input type="number" name="installment" id="installment" class="form-control"
+                                               placeholder="No of Installments"/>
+                                        <div class="error"></div> <!-- Error display for 'quantity' -->
+                                    </div>
+                                </div>
+                                <div class="form-row mt-3">
+                                    <div class="form-group col-md-12 px-3">
+                                        <label for="details_notes" class="custom_label_color">Your Details</label>
+                                        <textarea name="details_notes" id="details_notes" class="form-control" rows="4"
+                                                  placeholder="Enter Your details notes here..."></textarea>
+                                        <div class="error"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row pr-2 pr-md-2 pt-2 justify-content-end">
+                                    <div class="col-4 text-right">
+                                        <!--                                        <button type="submit" class="btn" style="background:#345E90; color:#fff">Back To List</button>-->
+                                        <a t-attf-href="/salary_loan_request" class="btn btn-primary"
+                                           style="background:#345E90; color:#fff;">
+                                            Back to List
+                                        </a>
+                                        <button type="submit" class="btn" style="background:#345E90; color:#fff">Create
+                                            Request
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="overlay"></div>
+                <!--                <script src="https://code.jquery.com/jquery-3.6.0.min.js"/>-->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"/>
+                <script type="module" src="/kyan_employee_portal/static/src/js/loan_salary_request.js"/>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+                <script type="script" src="kyan_employee_portal/static/src/js/overlay.js"/>
+            </body>
+        </t>
+    </template>
+</odoo>
+

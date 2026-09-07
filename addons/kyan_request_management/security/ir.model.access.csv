@@ -1,0 +1,17 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_request_request,access_request_request,model_request_request,base.group_user,1,1,1,1
+access_hr_request_type,access_hr_request_type,model_hr_request_type,base.group_user,1,1,1,1
+access_leave_wizard,access_leave_wizard,model_leave_wizard,,1,1,1,1
+access_expense_wizard,access_expense_wizard,model_expense_wizard,,1,1,1,1
+
+access_hr_loan_user,hr.loan.group_user,model_hr_loan,base.group_user,1,1,1,0
+access_hr_jobuser,hr.job.group_user,hr.model_hr_job,base.group_user,1,1,1,0
+access_hr_loan_line_user,hr.loan.line.group_user,model_hr_loan_line,base.group_user,1,1,0,0
+access_hr_loan_officer,hr.loan.group_hr_user,model_hr_loan,hr.group_hr_user,1,1,1,1
+access_hr_loan_line_officer,hr.loan.line.group_hr_user,model_hr_loan_line,hr.group_hr_user,1,1,1,1
+access_hr_loan_manager,hr.loan,model_hr_loan,hr.group_hr_manager,1,1,1,1
+access_hr_loan_line_manager,hr.loan.line,model_hr_loan_line,hr.group_hr_manager,1,1,1,1
+access_journal_entry_wizard,journal.entry.wizard,model_journal_entry_wizard,base.group_user,1,1,1,1
+
+access_hr_accident,access_hr_accident,model_hr_accident,base.group_user,1,1,1,1
+access_medical_report,access_medical_report,model_medical_report,base.group_user,1,1,1,1

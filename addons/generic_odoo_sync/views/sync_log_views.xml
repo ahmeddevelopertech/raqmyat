@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- =========================
+         Sync Log Tree
+    ========================== -->
+    <record id="view_sync_log_tree" model="ir.ui.view">
+        <field name="name">sync.log.tree</field>
+        <field name="model">sync.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date"/>
+                <field name="model"/>
+                <field name="record_id"/>
+                <field name="operation"/>
+                <field name="direction"/>
+                <field name="status"/>
+                <field name="retry_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- =========================
+         Sync Log Form
+    ========================== -->
+    <record id="view_sync_log_form" model="ir.ui.view">
+        <field name="name">sync.log.form</field>
+        <field name="model">sync.log</field>
+        <field name="arch" type="xml">
+            <form string="Sync Log">
+                <sheet>
+                    <group>
+                        <field name="model"/>
+                        <field name="record_id"/>
+                        <field name="operation"/>
+                        <field name="direction"/>
+                        <field name="status"/>
+                        <field name="retry_count"/>
+                    </group>
+
+                    <group>
+                        <field name="message"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- =========================
+         Sync Log Action
+    ========================== -->
+    <record id="action_sync_log" model="ir.actions.act_window">
+        <field name="name">Sync Logs</field>
+        <field name="res_model">sync.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

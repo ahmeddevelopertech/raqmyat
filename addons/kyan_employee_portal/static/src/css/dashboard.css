@@ -1,0 +1,190 @@
+/* General styles for cards */
+#leave, #expense, #loan, #profile {
+    background-color: #9EC7E3;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%; /* Full width by default */
+    height: 160px;
+    margin-bottom: 15px; /* Add margin to avoid overlap */
+}
+
+#expense {
+    background-color: #68ADDB;
+}
+
+#profile {
+    background-color: #84B1D0;
+}
+
+#loan {
+    background: linear-gradient(135deg, #84B1D0 0%, #84B1D0 100%);
+}
+
+.dashboard-card {
+    height: 160px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-icon {
+    font-size: 45px;
+    color: #3498db;
+    margin-bottom: 10px; /* Ensure space between icon and text */
+}
+
+.card-value, .prof-card-value {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#viewDetails, #viewExpenseDetails {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#viewDetails:hover, #viewExpenseDetails:hover {
+    color: #27ae60;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-content div {
+    width: 50%;
+    text-align: center;
+}
+
+/* Styles for the REMAINING LEAVES card */
+#leave .card-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#leave .card-value {
+    font-size: 16px; /* Adjusted for better fit */
+}
+
+#leave .leave-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#leave .remaining,
+#leave .consumed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#leave .label {
+    font-size: 14px;
+    color: #555;
+}
+
+#leave .value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-card {
+        width: 100%; /* Ensure full width on smaller screens */
+        height: auto; /* Adjust height automatically */
+    }
+
+    .card-title {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .card-value, .prof-card-value {
+        font-size: 24px; /* Adjust card values font size */
+    }
+
+    .card-icon {
+        font-size: 35px; /* Adjust icon size */
+    }
+
+    .appointment-cards .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-md-4.col-sm-6 {
+        flex: 0 0 100%; /* Ensure cards stack on mobile */
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .card-content {
+        flex-direction: column;
+        align-items: flex-start; /* Align content in one direction */
+    }
+
+    #viewDetails, #viewExpenseDetails {
+        font-size: 14px;
+    }
+
+    /* Specific adjustments for REMAINING LEAVES card */
+    #leave .leave-details {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #leave .card-value {
+        font-size: 14px;
+    }
+
+    #leave .value {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 12px;
+    }
+
+    .card-value, .prof-card-value {
+        font-size: 20px;
+    }
+
+    .card-icon {
+        font-size: 30px;
+    }
+
+    .col-md-4.col-sm-6 {
+        margin-bottom: 10px;
+    }
+
+    /* Specific adjustments for REMAINING LEAVES card */
+    #leave .card-title {
+        font-size: 14px;
+    }
+
+    #leave .leave-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #leave .remaining,
+    #leave .consumed {
+        margin-bottom: -5px;
+    }
+}

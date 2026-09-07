@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_all_expense_requests" name="Expense Requests" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <t t-set="title">Expense Requests</t>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <!--                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>-->
+                <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" rel="stylesheet"/>
+                <link href="https://cdn.datatables.net/1.13.0/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+            </head>
+            <body>
+                <t t-call="kyan_employee_portal.portal_navigation"/>
+                <div class="content">
+                    <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">EXPENSE REQUEST</h4>
+                    <p class="ml-2 ml-md-5 mt-n1 mt-md-0 subheading_text_control" style="color: #345E90;">Pending Requests Details</p>
+                    <hr/>
+                    <!--                    <div class="container container-md-fluid">-->
+                    <!--                        <div class="row align-items-center">-->
+                    <!--                            <div class="col-md-6">-->
+                    <!--                                <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">EXPENSE REQUEST</h4>-->
+                    <!--                                <p class="ml-2 ml-md-5 mt-n1 mt-md-0 subheading_text_control" style="color: #345E90;">Pending Requests-->
+                    <!--                                    Details-->
+                    <!--                                </p>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="col-md-6">-->
+                    <!--                                <nav aria-label="breadcrumb " class="first d-flex justify-content-end">-->
+                    <!--                                    <ol class="breadcrumb indigo lighten-6 first-1 shadow-lg mb-3">-->
+                    <!--                                        <li class="breadcrumb-item font-weight-bold">-->
+                    <!--                                            <a class="black-text text-uppercase" href="#">-->
+                    <!--                                                <span>home</span>-->
+                    <!--                                            </a>-->
+                    <!--                                            <img class="ml-md-3" src="https://img.icons8.com/offices/100/000000/double-right.png" width="20"-->
+                    <!--                                                 height="20"/>-->
+                    <!--                                        </li>-->
+                    <!--                                        <li class="breadcrumb-item font-weight-bold">-->
+                    <!--                                            <a class="black-text text-uppercase" href="#">-->
+                    <!--                                                <span>about</span>-->
+                    <!--                                            </a>-->
+                    <!--                                            <img class="ml-md-3" src="https://img.icons8.com/offices/100/000000/double-right.png" width="20"-->
+                    <!--                                                 height="20"/>-->
+                    <!--                                        </li>-->
+                    <!--                                    </ol>-->
+                    <!--                                </nav>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                    <div class="mian_content mt-n2 mt-n2 mt-md-5 mt-md-5 ml-md-5">
+                        <div class="row">
+                            <div class="col d-flex justify-content-end mr-2 mr-md-0">
+                                <a href="/portal_expense_request">
+                                    <button type="button" class="btn btn-md mb-3"
+                                            style="background:#345E90; color:#fff;">
+                                        Create New Request
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Expense Date</th>
+                                            <th>Paid By</th>
+                                            <th>Company</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="data" t-as="details">
+                                            <tr>
+                                                <td class="align-middle" t-esc="details_index + 1"/>
+                                                <td class="align-middle"
+                                                    t-esc="details.name">Name
+                                                </td>
+                                                <td class="align-middle"
+                                                    t-esc="details.date">
+                                                    Expense Date
+                                                </td>
+                                                <td class="align-middle">
+                                                    <t t-if="details.state">
+                                                        <span t-field="details.payment_mode"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        Paid By
+                                                    </t>
+                                                </td>
+                                                <td class="align-middle"
+                                                    t-esc="details.company_id.name">
+                                                    Compnay
+                                                </td>
+                                                <td class="align-middle" t-esc="details.total_amount">
+                                                    Total
+                                                </td>
+                                                <td class="align-middle">
+                                                    <t t-if="details.state">
+                                                        <span t-field="details.state"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        Status
+                                                    </t>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a t-attf-href="/expense_request/#{details.id}"
+                                                       class="btn btn-sm btn-success mt-auto">View
+                                                    </a>
+                                                    <!--                                                    t-att-href="'/requisition_request/' + str(details.id)"-->
+
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- jQuery -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <!-- DataTables JS -->
+                <script src="https://cdn.datatables.net/1.13.0/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.13.0/js/dataTables.bootstrap5.min.js"></script>
+                <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+                <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                    $('#example').DataTable({
+                    responsive: true
+                    });
+                    });
+                </script>
+            </body>
+        </t>
+    </template>
+</odoo>
+

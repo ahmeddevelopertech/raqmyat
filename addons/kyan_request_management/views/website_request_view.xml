@@ -1,0 +1,124 @@
+<odoo>
+    <template id="request_website_page" name="Request Page">
+        <t t-call="website.layout">
+            <t t-if="not requests_ids">
+              <p>There are currently no request for your account.</p>
+            </t>
+            
+            <div class="container table-responsive">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>
+                            <h3>Request</h3>
+                        </td>
+                        <td>
+                            <a role="button" class="btn btn-primary send_data_request" data-bs-toggle="modal" 
+                                style=" float: right; border-radius: 2px; margin-top:5px; margin-bottom:5px;"
+                                t-attf-data-bs-target="#mywebsiterequest" href="#" 
+                                t-attf-aria-controls="mywebsiterequest">Create Request </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-bordered">
+                    <t t-if="requests_ids">
+                        <thead>
+                            <tr class="active">
+                                <th>Name</th>
+                                <th>Employee</th>
+                                <th>Request Date</th>
+                                <th>Request Type</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="requests_ids" t-as="record">
+                            <tr>
+                                <td><t t-esc="record.sequence_name"/></td>
+                                <td><t t-esc="record.employee_id.name"/></td>
+                                <td><t t-esc="record.reqest_date"/></td>
+                                <td><span t-field="record.type_id.name"/></td>
+                                <td><span t-field="record.state"/></td>
+                            </tr>
+                        </t>
+                    </t>
+                </table>
+            </div>
+            
+            <div class="form-inline send_data_request">
+                <div class="btn-group">
+                    <div class="modal fade" t-attf-id="mywebsiterequest" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title w-100 text-center">Create Request</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form name="create_request_page" method="post">
+                                        <div class="row text-center">
+                                            <div class="col-5">
+                                                <label class="col-form-label" style="margin-right: 101px;">Types</label>
+                                                <select name="request_selection" class="form-control onchangerequesttype" id="request_selection" style="margin-left: 50px; width:200px;">
+                                                    <option value="">Request Type...</option>
+                                                    <t t-foreach="requests_type_id" t-as="l">
+                                                        <option t-att-value="l.id" name="l.id">
+                                                            <t t-esc="l.name"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-5">
+                                                <label class="col-form-label">Request Date</label>
+                                                <input type="date" class="form-control o_website_form_input request_date" id="request_date" name="request_date" style="margin-left: 70px;width:200px;"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row text-center">
+                                            <div class="col-5">
+                                                <label class="col-form-label" id="start_date_lable">Start Date</label>
+                                                <input type="date" class="form-control o_website_form_input" id="start_date" name="start_date" style="margin-left: 50px; width:200px;"/>
+                                            </div>
+                                            <div class="col-5">
+                                                <label class="col-form-label" id="end_date_lable">End Date</label>
+                                                <input type="date" class="form-control o_website_form_input" id="end_date" name="end_date" style="margin-left: 70px;width:200px;"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-center">
+                                            <div class="col-10">
+                                                <input type="float" class="form-control o_website_form_input" name="amount" id="amount_field" placeholder="Amount" style="width: 520px;margin-left: 50px;margin-top: 10px;margin-right: 18px;" required="required"/>
+                                            </div>
+                                            <div class="col-10">
+                                                <select name="employe_id" class="form-control" id="employe_id" style="width: 520px;margin-left: 50px;margin-top: 10px;margin-right: 18px;">
+                                                    <option value="">Employee Name</option>
+                                                    <t t-foreach="employee_id" t-as="l">
+                                                        <option t-att-value="l.id" name="l.id">
+                                                            <t t-esc="l.name"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control o_website_form_input" rows="1" name="your_details" id="your_details" placeholder="Your Details" style="width: 520px;margin-left: 50px;margin-top: 10px;margin-right: 18px;"></input>
+                                            </div>
+                                            <div class="col-10">
+                                                <textarea class="form-control o_website_form_input" rows="1" name="description_request" id="description_request" placeholder="Description" style="width: 520px;margin-left: 50px;margin-top: 10px;margin-right: 18px;"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-center">
+                                                <div id="request_error" class="d-none alert alert-danger" style="width: 510px;margin-left: 45px;margin-top:10px;height: 35px;line-height: 0.5;"></div>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary sendRequestclick">Submit</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="margin-right: 220px;">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

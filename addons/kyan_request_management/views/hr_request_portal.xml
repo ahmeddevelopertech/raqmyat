@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="portal_hr_request" name="Portal layout : Request" inherit_id="portal.portal_breadcrumbs" priority="50">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+          <li t-if="request_id" t-attf-class="breadcrumb-item #{'active ' if not request_id else ''}">
+            <a t-if="request_id"><t t-esc="request_id.sequence_name"/></a>
+            <t t-else=""><t t-esc="request_id.sequence_name"/></t>
+          </li>
+        </xpath>
+    </template>
+
+    <template id="portal_home_my_request" name="Employee Request" inherit_id="portal.portal_my_home" priority="1">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Request</t>
+                <t t-set="url" t-value="'/my/request'"/>
+                <t t-set="placeholder_count" t-value="'request_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_request" name="Pickings List">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Requests</t>
+            </t>
+            <t t-if="not requests_ids">
+              <p>There are currently no request for your account.</p>
+            </t>
+            <t t-if="requests_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Name</th>
+                        <th>Employee</th>
+                        <th>Request Date</th>
+                        <th>Request Type</th>
+                        <th>State</th>
+                    </tr>
+                </thead>
+                <t t-foreach="requests_ids" t-as="record">
+                    <tr>
+                        <td><t t-esc="record.sequence_name"/></td>
+                        <td><t t-esc="record.employee_id.name"/></td>
+                        <td><t t-esc="record.reqest_date"/></td>
+                        <td><span t-field="record.type_id.name"/></td>
+                        <td><span t-field="record.state"/></td>
+                    </tr>
+                </t>
+            </t>
+
+        </t>
+    </template>
+
+    <template id="portal_searchbar_extend_request" name="Search Information" inherit_id="portal.portal_searchbar">
+        <xpath expr="//div[@t-if='searchbar_sortings']" position="before">
+            <div class="form-inline">
+                <div class="btn-group">
+                    <div class="modal fade" id="myrequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title w-100 text-center">Create Request</h5>
+                            </div>
+                          <div class="modal-body">
+                            <form name="create_request_form" method="post">
+                                <div class="row text-center">
+                                    <div class="col-5">
+                                        <label class="col-form-label" style="margin-right: 101px;">Types</label>
+                                        <select name="request_selection" class="form-control" id="#request_selection" style="margin-left: 30px;">
+                                            <option value="">Request Type...</option>
+                                            <t t-foreach="requests_type_ids or []" t-as="l">
+                                                <option t-att-value="l.id" t-att-selected="l.id" name="l.id">
+                                                    <t t-esc="l.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="col-5">
+                                        <label class="col-form-label">Request Date</label>
+                                        <input type="date" class="form-control o_website_form_input request_date" name="request_date" style="margin-left: 70px;width:230px;"/>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-10">
+                                        <!-- <label class="col-form-label">Amount</label> -->
+                                        <input type="float" class="form-control o_website_form_input" name="amount" placeholder="Amount" style="width: 520px;margin-left: 50px;margin-top: 10px;margin-right: 18px;"/>
+                                    </div>
+                                    <div class="col-10">
+                                        <textarea class="form-control o_website_form_input" rows="1" name="description_request" id="description_request"
+                                            placeholder="Description" style="width: 520px;margin-left: 50px;margin-top: 10px;margin-right: 18px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <div id="request_error" class="d-none alert alert-danger" style="width: 510px;margin-left: 45px;margin-top:10px;height: 35px;line-height: 0.5;"></div>
+                                    </div>
+                                </div>
+                            </form> 
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary send_info_request" >Submit</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-right: 220px;">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

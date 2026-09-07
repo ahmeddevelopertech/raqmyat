@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sync_config,sync.config,model_sync_config,base.group_system,1,1,1,1
+
+access_sync_field_map,sync.field.map,model_sync_field_map,base.group_system,1,1,1,1
+
+access_sync_external_map,sync.external.map,model_sync_external_map,base.group_system,1,1,1,1
+
+access_sync_log,sync.log,model_sync_log,base.group_system,1,0,0,0

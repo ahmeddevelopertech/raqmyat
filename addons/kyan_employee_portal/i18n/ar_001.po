@@ -1,0 +1,1232 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kyan_employee_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-30 10:29+0000\n"
+"PO-Revision-Date: 2024-10-30 10:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid ""
+"<option value=\"accident\">Accident</option>\n"
+"                                            <option value=\"incident\">Incident</option>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid ""
+"<option value=\"fatal\">Fatal</option>\n"
+"                                            <option value=\"non_fatal\">Non Fatal</option>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+msgid ""
+"<select name=\"types\" id=\"types\" class=\"form-control\" disabled=\"disabled\">\n"
+"                                            <option value=\"loan\" selected=\"selected\">Loan</option>\n"
+"                                            <option value=\"salary_advance\">Salary Advance</option>\n"
+"                                        </select>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid ""
+"<select name=\"types\" id=\"types\" class=\"form-control\" disabled=\"disabled\">\n"
+"                                            <option value=\"loan\">Loan</option>\n"
+"                                            <option value=\"salary_advance\" selected=\"selected\">Salary Advance</option>\n"
+"                                        </select>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid ""
+"<span class=\"input-group-append\">\n"
+"                                                <span class=\"input-group-text bg-white material-symbols-outlined\">\n"
+"                                                    calendar_month\n"
+"                                                </span>\n"
+"                                            </span>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid ""
+"<span class=\"input-group-append\">\n"
+"                                            <span class=\"input-group-text bg-white material-symbols-outlined\">\n"
+"                                                calendar_month\n"
+"                                            </span>\n"
+"                                        </span>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "<span class=\"label\">Consumed</span>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "<span class=\"label\">Remaining</span>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_navigation
+msgid ""
+"<span>\n"
+"                                        <i class=\"fas fa-globe\"/>\n"
+"                                        Language\n"
+"                                    </span>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+msgid "ACCIDENT / INCIDENT REQUEST"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "ACCIDENT/INCIDENT"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Academic"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Accident / Incident Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+msgid "Accident Request Details"
+msgstr "رقصت عقدنا ورقصت"
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+msgid "Accident/Incident Requests"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Accrual Annual Leaves"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "Action"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_navigation
+msgid "Arabic"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Attachment"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "BI.049"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid ""
+"Back\n"
+"                            to\n"
+"                            List"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Back to List"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Bank Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+msgid "Bill Reference"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Budgeted"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Business"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Choose File ..."
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Choose file ..."
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Choose file..."
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Communication History"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Company"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+msgid "Compnay"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Computer Knowledge"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Consultant"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Consumed"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Contract End Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Contract Expiry"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Contract Info"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Contract Start Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Contract Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid ""
+"Create\n"
+"                                        Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "Create New Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Create Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "Dashboard"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Date From"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Date of Accident/Incident"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+msgid "Date of Reporting"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Date of Resumption"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Department"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Department/College"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+msgid "Duration"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid ""
+"Duration Year/s of\n"
+"                                            Experience:of Contract"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Duration of Contract"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "EMPLOYEE LEAVE REQUEST"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+msgid "EXPENSE REQUEST"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Education"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Employee"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Employee ID"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Employee Image"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Employee Name"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Employee Profile"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Employee Self Service Portal"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Employee Status"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+msgid "End Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_navigation
+msgid "English"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Enter Your details notes here..."
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Enter accountability"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Enter position Purpose"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Enter position Requirement"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Enter your passport no"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+msgid "Expense Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+msgid "Expense Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+msgid "Expense Name"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+msgid "Expense Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+msgid "Expense Requests"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Expiry Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "First Certificate"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "From"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "From Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "From date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Gender"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Grade"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Hospital"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid ""
+"If \"Yes\"\n"
+"                                            <span>(Type Of Office)</span>"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Incident Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model:ir.model.fields,field_description:kyan_employee_portal.field_res_users__is_customer
+msgid "Is Customer"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Job Position"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Joining Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Key Competencies"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+msgid "LEAVE REQUEST"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "LOAN"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+msgid "LOAN REQUEST"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Language"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Leave Policy"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Leave Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+msgid "Leave Request Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+msgid "Leave Requests"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Leave Summary"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+msgid "Leave Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "Leave, Expense, and Incident Distribution"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Line Manager"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Loan"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "Loan / Salary Advance Amount"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Loan Amount"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+msgid "Loan Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+msgid "Loan Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Main Accountability"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Manager"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Marital Status"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Name"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "National ID / IQAMA no"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Nationality"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid ""
+"New\n"
+"                                                    Position"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "No of Installment"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "No of Installments"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "No of Positions"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid ""
+"No user is assigned to this employee Check Employee Info. Please contact HR."
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid ""
+"Non\n"
+"                                                    Academic"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Occupation"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Occuptation"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid ""
+"Office Space\n"
+"                                            Available"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Other Computer Skills"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Other Education"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Other Language"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Paid Amount"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+msgid "Paid By"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid ""
+"Part\n"
+"                                                    Time"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Passport No"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+msgid ""
+"Pending\n"
+"                        Requests Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Pending Requests"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "Pending Requests Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid ""
+"Personal\n"
+"                                            Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid ""
+"Personal\n"
+"                                        Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Personal Info"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Position"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Position Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Position Requisition Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Position Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Professional Certificate"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Purpose Of Position"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+msgid "Quantity"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid ""
+"Reason, Justification\n"
+"                                            and supporting documents are required for other than Annual Leaves"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid ""
+"Recommended\n"
+"                                                Monthly Basic Salary"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Ref # from external fund"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Replacement"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Reporting Manager"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Requested By"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Requested Position"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Required Position"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Requisition Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Requisition Requests"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid ""
+"Research /\n"
+"                                                    Post Doctoral"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "SALARY ADVANCE"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "SALARY ADVANCE REQUEST"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "Salary Advance Amount"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Salary Advance Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "Salary Advance Request"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Second Certificate"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Select Contract Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Select Grade"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "Select Leave Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Select line Manager"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Self Services"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid ""
+"Send\n"
+"                                            Attachment"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Send Message"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Send Required Documents"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_expense_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Send a message..."
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Sick Leave"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+msgid "Start Date"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+msgid "Start Date:"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "State"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Status"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_leave_request
+msgid "Status:"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+msgid "Student"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "Summary of Leave, Expenses, Salary, and Incidents"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "TOTAL EXPENSE"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Third Certificate"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "This Form is valid only six (6) months from the date of submission"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Time And Location"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+msgid "Time off Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_leave_request
+msgid "To"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+msgid "Total"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Total Amount"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+msgid "Type"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Type of Inquiry"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_loan_details
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.view_salary_loan_request
+msgid "Types"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_expense_request
+msgid "Unit Price"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model:ir.model,name:kyan_employee_portal.model_res_users
+msgid "User"
+msgstr "المستخدم"
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.all_leave_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.loan_all_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_expense_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_job_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.salary_advance_loan_request
+msgid "View"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "Views"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Wiba Compensation"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_all_accident_requests
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_view_accident_request
+msgid "Witness"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+msgid "Witnesses"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Work Email"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_employee_management
+msgid "Work Phone"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "Workspace Allocation"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.dashboard_main
+msgid "YOUR DETAILS"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_accident_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_loan_request
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_salary_advance_request
+msgid "Your Details"
+msgstr ""
+
+#. module: kyan_employee_portal
+#: model_terms:ir.ui.view,arch_db:kyan_employee_portal.portal_job_requisition_request
+msgid "linux,Network,Infrastructures"
+msgstr ""

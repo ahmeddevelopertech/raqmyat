@@ -1,0 +1,78 @@
+<odoo>
+
+    <record id="hr_leave_inherited_form_view" model="ir.ui.view">
+        <field name="name">hr.leave.inherited.form.view</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="request_id" string="Request" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_leave_allocation_inherited_form_view" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.inherited.form.view</field>
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="request_id" string="Request" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_leave_type_inherited_form_view" model="ir.ui.view">
+        <field name="name">hr.leave.type.inherited.form.view</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='allocation_validation_type']" position="after">
+                <field name="request_type_id" string="Request Type"/>
+            </xpath>
+        </field>
+    </record>
+
+<!-- expense -->
+    <record id="hr_expense_inherited_form_view" model="ir.ui.view">
+        <field name="name">hr.expense.inherited.form.view</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="request_id" string="Request" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="hr_expense_rqst_actions_my_all" model="ir.actions.act_window">
+        <field name="name">Expenses</field>
+        <field name="res_model">hr.expense</field>
+        <field name="view_mode">tree,kanban,form,graph,pivot,activity</field>
+    </record>
+
+    <menuitem id="menu_hr_expense_request"
+        name="Expenses"
+        action="hr_expense_rqst_actions_my_all"
+        parent="kyan_request_management.employee_request"
+        sequence="30"
+        />  
+
+<!-- Leave -->
+
+    <record id="hr_leave_rqst_action_my" model="ir.actions.act_window">
+        <field name="name">Time Off</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.leave</field>
+        <field name="view_mode">tree,form,kanban,activity</field>
+    </record>
+
+    <menuitem id="menu_hr_leave_request"
+        name="Time off"
+        action="hr_leave_rqst_action_my"
+        parent="kyan_request_management.employee_request"
+        sequence="40"
+        />  
+
+</odoo>

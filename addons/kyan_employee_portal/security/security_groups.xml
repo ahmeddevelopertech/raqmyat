@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="access_mail_activity_type_portal" model="ir.model.access">
+            <field name="name">mail.activity.type.portal</field>
+            <field name="model_id" ref="mail.model_mail_activity_type"/>
+            <field name="group_id" ref="base.group_portal"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+        <record id="access_calendar_event_portal" model="ir.model.access">
+            <field name="name">calendar.event.portal</field>
+            <field name="model_id" ref="calendar.model_calendar_event"/>
+            <field name="group_id" ref="base.group_portal"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+        <record id="access_calendar_attendee_portal" model="ir.model.access">
+            <field name="name">calendar.attendee.portal</field>
+            <field name="model_id" ref="calendar.model_calendar_attendee"/>
+            <field name="group_id" ref="base.group_portal"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+        <record id="access_mail_activity_portal" model="ir.model.access">
+            <field name="name">mail.activity.portal</field>
+            <field name="model_id" ref="mail.model_mail_activity"/>
+            <field name="group_id" ref="base.group_portal"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+    </data>
+</odoo>

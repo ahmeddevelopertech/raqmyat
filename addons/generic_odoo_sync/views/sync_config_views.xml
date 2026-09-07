@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- =========================
+         Sync Config Tree View
+    ========================== -->
+    <record id="view_sync_config_tree" model="ir.ui.view">
+        <field name="name">sync.config.tree</field>
+        <field name="model">sync.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="sync_create"/>
+                <field name="sync_write"/>
+                <field name="sync_delete"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- =========================
+         Sync Config Form View
+    ========================== -->
+    <record id="view_sync_config_form" model="ir.ui.view">
+        <field name="name">sync.config.form</field>
+        <field name="model">sync.config</field>
+        <field name="arch" type="xml">
+            <form string="Sync Configuration">
+                <sheet>
+
+                    <!-- Basic Info -->
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+
+                        <group>
+                            <field name="model_id"/>
+                        </group>
+                    </group>
+
+                    <!-- Operations -->
+                    <group string="Operations">
+                        <field name="sync_create"/>
+                        <field name="sync_write"/>
+                        <field name="sync_delete"/>
+                    </group>
+
+                    <!-- Remote System -->
+                    <group string="Remote System">
+                        <field name="remote_url"/>
+                        <field name="api_key" password="True"/>
+                    </group>
+
+                    <!-- =========================
+                         Notebook
+                    ========================== -->
+                    <notebook>
+
+                        <!-- =========================
+                             Field Mapping Tab
+                        ========================== -->
+                        <page string="Field Mapping" invisible="not model_id">
+                            <field name="field_map_ids"
+                                   context="{'default_config_id': active_id}">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="field_id"/>
+                                    <field name="remote_field"
+                                           placeholder="Same as local"/>
+                                    <field name="active"/>
+                                </tree>
+                            </field>
+                        </page>
+
+
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- =========================
+         Action
+    ========================== -->
+    <record id="action_sync_config" model="ir.actions.act_window">
+        <field name="name">Sync Configurations</field>
+        <field name="res_model">sync.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

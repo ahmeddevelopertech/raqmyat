@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="hr_request_tree_view">
+        <field name="name">request.request.tree.view</field>
+        <field name="model">request.request</field>
+        <field name="arch" type="xml">
+            <tree string="Hr Request">
+                <field name="sequence_name"/>
+                <field name="reqest_date"/>
+                <field name="employee_id"/>           
+                <field name="type_id" string='Type'/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_request_form_view">
+        <field name="name">request.request.form.view</field>
+        <field name="model">request.request</field>
+        <field name="arch" type="xml">
+            <form string="Hr Request">
+                 <header>
+                    <button name="button_draft" string="Reset To Draft" type="object" class="oe_highlight" invisible="state != 'cancel'"/>
+                    
+                    <button name="button_confirm" string="Confirm" type="object" class="oe_highlight" invisible="state !='draft'"/>
+
+                    <button name="button_approve" 
+                        string="Approve"
+                        type="object" 
+                        class="oe_highlight" 
+                        invisible="state != 'confirm'" 
+                        groups="kyan_request_management.request_aprove,
+                                kyan_request_management.request_manager"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve,cancel"/>
+
+                    <button name="button_req_loan"
+                            string="Create Loan Request"
+                            type="object"
+                            class="oe_highlight"
+                            invisible="types != 'loan' or state != 'approve'"/>
+                    <button name="button_advnc_slry"  
+                            string="Create Salary Advance Request" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="types != 'advance_salary' or state != 'approve'"/>
+                    <button name="button_leave"  
+                            string="Create Leave" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="types != 'leave' or state != 'approve'"/>
+                    <button name="button_expense"  
+                            string="Create Expense" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="types != 'expense' or state != 'approve'"/>
+                    <button name="button_accident"  
+                            string="Create Accident Request" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="types != 'accident' or state != 'approve'"/>
+
+                    <button name="button_incident"  
+                            string="Create Incident Request" 
+                            type="object" 
+                            class="oe_highlight" 
+                            invisible="types != 'incident' or state != 'approve'"/>
+
+                    <button name="button_cancel"  string="Cancel" type="object" class="oe_highlight" invisible="state != ('draft', 'confirm,approve')"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="action_leave" type="object" icon="fa-calendar" invisible="types != 'leave'">
+                            <field name="leave_count" widget="statinfo" string="Leaves" />
+                        </button>
+                        <button class="oe_stat_button" name="action_loan" type="object" icon="fa-dollar" invisible="types != 'loan'">
+                            <field name="loan_count" widget="statinfo" string="Loans" />
+                        </button>
+                        <button class="oe_stat_button" name="action_advance_slry" type="object" icon="fa-dollar" invisible="types != 'advance_salary'">
+                            <field name="advnc_slry_count" widget="statinfo" string="Advance Salaray" />
+                        </button>
+                        <button class="oe_stat_button" name="action_expense" type="object" icon="fa-dollar" invisible="types != 'expense'">
+                            <field name="expense_count" widget="statinfo" string="Expense" />
+                        </button> 
+                        <button class="oe_stat_button" name="action_accident" type="object" invisible="types != 'accident'">
+                            <span class="oe_button_box">
+                                <i class="fa fa-ambulance fa-lg" title="Accident Icon"/>
+                            </span>
+                            <field name="accident_count" widget="statinfo" string="Accidents"/>
+                        </button>
+                        <button class="oe_stat_button" name="action_incident" type="object" invisible="types != 'incident'">
+                            <span class="oe_button_box">
+                                <i class="fa fa-ambulance fa-lg" title="Accident Icon"/>
+                            </span>
+                            <field name="incident_count" widget="statinfo" string="Incidents"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="sequence_name"/></h1>
+                    </div>   
+                    <group>
+                        <group>
+                            <field name="employee_id" required='1'/> 
+                            <field name="department_id"/> 
+                            <field name="job_id"/> 
+                        </group>
+                        <group>
+                            <field name="reqest_date" required="1"/>
+                            <field name="type_id" required="1"/>
+                            <field name="types" invisible="1"/>
+                            <field name="your_details"/>
+                            <field name="amount"                                 
+                                   required="types in ('loan', 'advance_salary')" 
+                                   invisible="types not in ('loan', 'advance_salary')"/>
+                        </group> 
+                        <group>
+                            <field name="start_date" required="types == 'leave'"
+                                   invisible="types != 'leave'"/>
+                        </group> 
+                        <group>
+                            <field name="end_date" required="types == 'leave'"
+                                   invisible="types != 'leave'"/>
+                        </group>
+                    </group>
+                    <field name="description" placeholder="Description" nolabel="1"/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    
+
+    <record model="ir.ui.view" id="hr_types_request_tree_view">
+        <field name="name">hr.request.type.tree.view</field>
+        <field name="model">hr.request.type</field>
+        <field name="arch" type="xml">
+            <tree string="Hr Request">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="types"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_types_request_form_view">
+        <field name="name">hr.request.type.form.view</field>
+        <field name="model">hr.request.type</field>
+        <field name="arch" type="xml">
+            <form string="Hr Request">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" required="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" required="1"/>
+                            <field name="types" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record model="ir.actions.act_window" id="action_request">
+        <field name="name">Employee Requests</field>
+        <field name="res_model">request.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_request_type">
+        <field name="name">Request Type</field>
+        <field name="res_model">hr.request.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="employee_request" 
+            name="Employee Request"
+            sequence="10" 
+            parent="hr.menu_hr_root"/>
+
+    <menuitem id="menu_hr_request" 
+            name="Employee Requests"
+            action="action_request" 
+            parent="employee_request" 
+            sequence="3"
+            groups="kyan_request_management.request_manager,kyan_request_management.request_user,kyan_request_management.request_aprove"
+            />
+
+    <menuitem id="menu_hr_request_type" 
+            name="Requests Type"
+            action="action_request_type" 
+            parent="employee_request" 
+            sequence="100"
+            groups="kyan_request_management.request_manager"
+            />
+</odoo>

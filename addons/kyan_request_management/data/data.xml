@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--        <record id="sequence_hr_accident" model="ir.sequence">-->
+        <!--            <field name="name">Seq</field>-->
+        <!--            <field name="code">hr.accident</field>-->
+        <!--            <field name="padding">3</field>-->
+        <!--            <field name="number_increment">1</field>-->
+        <!--            <field name="prefix">STN</field>-->
+        <!--        </record>-->
+        <record id="sequence_hr_accident" model="ir.sequence">
+            <field name="name">Accident/Incident</field>
+            <field name="code">hr.accident</field>
+            <field name="prefix">STN</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_loan" model="ir.sequence">
+            <field name="name">Loan</field>
+            <field name="code">loan.seq</field>
+            <field name="prefix">LOAN/</field>
+            <field name="number_increment">1</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_salary_advance" model="ir.sequence">
+            <field name="name">Salary</field>
+            <field name="code">loan.advance.seq</field>
+            <field name="prefix">ASAL/</field>
+            <field name="number_increment">1</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_hr_request" model="ir.sequence">
+            <field name="name">Request</field>
+            <field name="code">request.request</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+            <field name="prefix">REQ/</field>
+        </record>
+
+
+        <record id="incident" model="hr.request.type">
+            <field name="name">Incidents</field>
+            <field name="code">INCIDENTS</field>
+            <field name="types">incident</field>
+        </record>
+        <record id="accidents" model="hr.request.type">
+            <field name="name">Accidents</field>
+            <field name="code">ACCIDENTS</field>
+            <field name="types">accident</field>
+        </record>
+        <record id="expense" model="hr.request.type">
+            <field name="name">Expense</field>
+            <field name="code">EXPENSE</field>
+            <field name="types">expense</field>
+        </record>
+        <record id="loan" model="hr.request.type">
+            <field name="name">Loan</field>
+            <field name="code">LOAN</field>
+            <field name="types">loan</field>
+        </record>
+        <record id="advance_salary" model="hr.request.type">
+            <field name="name">Advance Salary</field>
+            <field name="code">ADVANCE</field>
+            <field name="types">advance_salary</field>
+        </record>
+        <record id="paid_leave" model="hr.request.type">
+            <field name="name">Paid Leave</field>
+            <field name="code">PAID LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="unpaid_leave" model="hr.request.type">
+            <field name="name">Unpaid Leave</field>
+            <field name="code">UNPAID LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="sick_leave" model="hr.request.type">
+            <field name="name">Sick Leave</field>
+            <field name="code">SICK LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="regular_leave" model="hr.request.type">
+            <field name="name">Regular Leave</field>
+            <field name="code">REGULAR LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="normal_leave" model="hr.request.type">
+            <field name="name">Normal Leave</field>
+            <field name="code">NORMAL LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="maternit_leave" model="hr.request.type">
+            <field name="name">Maternity Leave</field>
+            <field name="code">MATERNITY LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="festival_leave" model="hr.request.type">
+            <field name="name">Festival Leave</field>
+            <field name="code">FESTIVAL LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="compensatory_leave" model="hr.request.type">
+            <field name="name">Compensatory Leave</field>
+            <field name="code">COMPONSATORY LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="parental_leave" model="hr.request.type">
+            <field name="name">Parental Leave</field>
+            <field name="code">PARENTAL LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="other_leave" model="hr.request.type">
+            <field name="name">Other Leave</field>
+            <field name="code">OTHER LEAVE</field>
+            <field name="types">leave</field>
+        </record>
+        <record id="resignation" model="hr.request.type">
+            <field name="name">Resignation</field>
+            <field name="code">REJ</field>
+            <field name="types">request</field>
+        </record>
+        <record id="request_document" model="hr.request.type">
+            <field name="name">Document</field>
+            <field name="code">Doc</field>
+            <field name="types">request</field>
+        </record>
+        <record id="request_termination" model="hr.request.type">
+            <field name="name">Termination</field>
+            <field name="code">TRM</field>
+            <field name="types">request</field>
+        </record>
+        <record id="request_final" model="hr.request.type">
+            <field name="name">Final clearance</field>
+            <field name="code">FC</field>
+            <field name="types">request</field>
+        </record>
+        <record id="request_duty" model="hr.request.type">
+            <field name="name">Duty Resumption</field>
+            <field name="code">DRM</field>
+            <field name="types">request</field>
+        </record>
+        <record id="request_other" model="hr.request.type">
+            <field name="name">Other</field>
+            <field name="code">OTH</field>
+            <field name="types">request</field>
+        </record>
+    </data>
+</odoo>

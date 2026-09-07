@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_employee_management" name="Employee_management" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <t t-set="title">Employee</t>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <link rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+                <link rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+            </head>
+            <body>
+                <t t-if="no_employee_found">
+                    <div id="no_employee_alert" style="display: none;">
+                        No user is assigned to this employee Check Employee Info. Please contact HR.
+                    </div>
+                </t>
+                <t t-else="">
+                    <t t-call="kyan_employee_portal.portal_navigation"/>
+                    <div class="content">
+                        <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">Employee Profile</h4>
+                        <hr/>
+                        <div class="mian_content mt-n2 mt-n2 mt-md-5 mt-md-5 ml-md-5 ">
+                            <!--                            <ul class="nav nav-tabs d-none d-md-flex" role="tablist">-->
+
+                            <!--                                <li class="nav-item flex-fill text-center">-->
+                            <!--                                    <a class="nav-link active " data-toggle="tab" href="#personal_details">Personal-->
+                            <!--                                        Details-->
+                            <!--                                    </a>-->
+                            <!--                                </li>-->
+                            <!--                                &lt;!&ndash;                                <li class="nav-item flex-fill text-center">&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                    <a class="nav-link" data-toggle="tab" href="#bank_details">Bank Details</a>&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                </li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                <li class="nav-item flex-fill text-center">&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                    <a class="nav-link" data-toggle="tab" href="#contract_info">Contract Info</a>&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                </li>&ndash;&gt;-->
+
+                            <!--                            </ul>-->
+                            <div class="scrollable-nav-wrapper d-md-none">
+                                <!--                            <ul class="scrollable-nav">-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a class="nav-link active control-font" href="#personal_details">Personal Details-->
+                                <!--                                    </a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a class="nav-link control-font" href="#bank_details">Bank Details</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li class="nav-item">-->
+                                <!--                                    <a class="nav-link control-font" href="#contract_info">Contract Info</a>-->
+                                <!--                                </li>-->
+                                <!--                            </ul>-->
+                                <ul class="scrollable-nav nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active control-font" data-toggle="tab"
+                                           href="#personal_details" role="tab">
+                                            Personal
+                                            Details
+                                        </a>
+                                    </li>
+                                    <!--                                    <li class="nav-item">-->
+                                    <!--                                        <a class="nav-link control-font" data-toggle="tab" href="#bank_details"-->
+                                    <!--                                           role="tab">Bank Details-->
+                                    <!--                                        </a>-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li class="nav-item">-->
+                                    <!--                                        <a class="nav-link control-font" data-toggle="tab" href="#contract_info"-->
+                                    <!--                                           role="tab">Contract Info-->
+                                    <!--                                        </a>-->
+                                    <!--                                    </li>-->
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div id="personal_details" class="tab-pane active">
+                                    <div class="mt-5 mb-5">
+                                        <h5 style="color: #345E90;" class="ml-2 ml-md-0 ">Personal Info</h5>
+                                        <div class="p-4 section-color">
+                                            <div class="row d-flex justify-content-between mb-3">
+                                                <div class="col-12 col-md-6 text-center text-md-left order-1 order-md-0">
+                                                    <h1 style="color: #345E90;"
+                                                        class="ml-0 ml-md-4 mt-3 employee_name_style ">
+                                                        <t t-esc="employee_info.name"/>
+                                                    </h1>
+                                                    <h4 style="color: green;"
+                                                        class="ml-0 ml-md-4 mt-n1 mt-md-0  employee_job_style">
+                                                        <t t-esc="employee_info.job_id.name"/>
+                                                    </h4>
+                                                </div>
+                                                <div class="col-12 col-md-6 order-0 order-md-1 text-center text-md-right"
+                                                     style="">
+                                                    <img t-attf-src="data:image/*;base64,{{image_data}}"
+                                                         alt="Employee Image" style="width:120px;height:150px;"
+                                                         class="mr-4 img-fluid"/>
+
+                                                </div>
+                                            </div>
+                                            <form id="personalDetailForm">
+                                                <div class="form-row ">
+                                                    <div class="form-group col-12 col-md-4 ">
+                                                        <label for="employee_name_english" class="form1-label-colors">
+                                                            Name
+                                                            <!--                                                        <span>(English)</span>-->
+                                                        </label>
+
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="employee_name_english"
+                                                               t-att-value="employee_info.name" placeholder=""
+                                                               t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="job_position_english" class="form1-label-colors">
+                                                            Job Position
+                                                            <!--                                                        <span>(English)</span>-->
+                                                        </label>
+
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="job_position_english"
+                                                               t-att-value="employee_info.job_id.name" placeholder=""
+                                                               t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="reporting_manager" class="form1-label-colors">
+                                                            Manager
+                                                        </label>
+
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="reporting_manager"
+                                                               t-att-value="employee_info.parent_id.name" placeholder=""
+                                                               t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row ">
+                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="employee_id" class="form1-label-colors">
+                                                            Badge ID
+                                                        </label>
+
+                                                        <input type="text"
+                                                               class="form-control form1-label-colors"
+                                                               t-att-value="employee_info.barcode"
+                                                               id="employee_id"
+                                                               placeholder="" t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="department_english" class="form1-label-colors">
+                                                            Department
+                                                        </label>
+
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="department_english"
+                                                               t-att-value="employee_info.department_id.name"
+                                                               placeholder="" t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="gender" class="form1-label-colors">
+                                                            Coach
+                                                        </label>
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="coach"
+                                                               t-att-value="employee_info.coach_id.name"
+                                                               placeholder="" t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row ">
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="joining_date" class="form1-label-colors">
+                                                            Joining Date
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control form1-label-colors"
+                                                                   id="joining_date"
+                                                                   t-att-value="employee_info.x_studio_joining_date"
+                                                                   t-att-disabled="1"/>
+                                                            <span class="input-group-append">
+                                                                <span class="input-group-text bg-white">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="nationality" class="form1-label-colors">
+                                                            Nationality
+                                                        </label>
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="nationality"
+                                                               t-att-value="employee_info.country_id.name"
+                                                               placeholder="" t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="gender" class="form1-label-colors">
+                                                            Gender
+                                                        </label>
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="gender"
+                                                               t-att-value="employee_info.gender"
+                                                               placeholder="" t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-row ">
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="passport_no" class="form1-label-colors">
+                                                            Passport No
+                                                        </label>
+
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="passport_no"
+                                                               t-att-value="employee_info.passport_id"
+                                                               placeholder="Enter your passport no" t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                    <!--                                                <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">-->
+                                                    <!--                                                    <label for="passport_expiry" class="form1-label-colors">-->
+                                                    <!--                                                        Passport Expiry-->
+
+                                                    <!--                                                    </label>-->
+
+                                                    <!--                                                    <div class="input-group">-->
+                                                    <!--                                                        <input type="text" class="form-control form1-label-colors"-->
+                                                    <!--                                                               id="passport_expiry"-->
+                                                    <!--                                                               t-att-value="employee_info.passport_expiry_date"-->
+                                                    <!--                                                               placeholder="Enter passport expiry"/>-->
+                                                    <!--                                                        <span class="input-group-append">-->
+                                                    <!--                                                            <span class="input-group-text bg-white">-->
+                                                    <!--                                                                <i class="fa fa-calendar"></i>-->
+                                                    <!--                                                            </span>-->
+                                                    <!--                                                        </span>-->
+                                                    <!--                                                    </div>-->
+                                                    <!--                                                    <div class="error">-->
+
+                                                    <!--                                                    </div>-->
+                                                    <!--                                                </div>-->
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="national_id" class="form1-label-colors">
+                                                            Identification NO
+                                                        </label>
+                                                        <input type="text"
+                                                               class="form-control form1-label-colors"
+                                                               t-att-value="employee_info.identification_id"
+                                                               id="national_id"
+                                                               placeholder="" t-att-disabled="1"/>
+                                                        <div class="error">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="marital_status" class="form1-label-colors">
+                                                            Marital Status
+                                                        </label>
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="marital"
+                                                               t-att-value="employee_info.marital"
+                                                               placeholder="" t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row ">
+                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="contract_start_date" class="form1-label-colors">
+                                                            Contract Type
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control form1-label-colors"
+                                                                   id="contract_type"
+                                                                   placeholder="Contract Type"
+                                                                   t-att-value="employee_info.contract_ids.contract_type_id.name"
+                                                                   t-att-disabled="1"/>
+                                                            <span class="input-group-append">
+                                                                <span class="input-group-text bg-white">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="contract_start_date" class="form1-label-colors">
+                                                            Contract Start Date
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control form1-label-colors"
+                                                                   id="contract_start_date"
+                                                                   placeholder="From date"
+                                                                   t-att-value="employee_info.contract_ids.date_start"
+                                                                   t-att-disabled="1"/>
+                                                            <span class="input-group-append">
+                                                                <span class="input-group-text bg-white">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="contract_end_date" class="form1-label-colors">
+                                                            Contract End Date
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control form1-label-colors"
+                                                                   id="contract_end_date"
+                                                                   placeholder="From date"
+                                                                   t-att-value="employee_info.contract_ids.date_end"
+                                                                   t-att-disabled="1"/>
+                                                            <span class="input-group-append">
+                                                                <span class="input-group-text bg-white">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="error">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row ">
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="work_phone" class="form1-label-colors">
+                                                            Work Phone
+                                                        </label>
+
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="work_phone"
+                                                               t-att-value="employee_info.work_phone" placeholder=""
+                                                               t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-4 pl-md-3 mt-n2 mt-md-0">
+                                                        <label for="work_email" class="form1-label-colors">
+                                                            Work Email
+
+                                                        </label>
+
+                                                        <input type="text" class="form-control form1-label-colors"
+                                                               id="work_email"
+                                                               t-att-value="employee_info.work_email" placeholder=""
+                                                               t-att-disabled="1"/>
+                                                        <div class="error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--                            BANK DETAILS SECTION                       -->
+
+                                <!--                                <div id="bank_details" class="tab-pane fade">-->
+                                <!--                                    <div class="mt-5 mb-5">-->
+                                <!--                                        <h5 style="color: #345E90;" class="ml-2 ml-md-0">Bank Details</h5>-->
+                                <!--                                        <div class="p-4 section-color">-->
+                                <!--                                            <form id="bankForm">-->
+                                <!--                                                <div class="form-row ">-->
+                                <!--                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">-->
+                                <!--                                                        <label for="bank_account_title" class="form1-label-colors">-->
+                                <!--                                                            Account Title-->
+                                <!--                                                        </label>-->
+
+                                <!--                                                        <input type="text" class="form-control" id="bank_account_title"-->
+                                <!--                                                               placeholder="Enter bank account title"-->
+                                <!--                                                               t-att-value="employee_info.bank_account_id.acc_holder_name"-->
+                                <!--                                                               t-att-disabled="'disabled' if employee_info.bank_account_id.acc_holder_name else None"-->
+                                <!--                                                        />-->
+                                <!--                                                        <div class="error">-->
+
+                                <!--                                                        </div>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">-->
+                                <!--                                                        <label for="bank_account_name" class="form1-label-colors">-->
+                                <!--                                                            Bank Name-->
+                                <!--                                                        </label>-->
+
+                                <!--                                                        <input type="text" class="form-control" id="bank_account_name"-->
+                                <!--                                                               placeholder="Enter bank name"-->
+                                <!--                                                               t-att-value="employee_info.bank_account_id.bank_id.name"-->
+                                <!--                                                               t-att-disabled="'disabled' if employee_info.bank_account_id.bank_name else None"/>-->
+                                <!--                                                        <div class="error">-->
+
+                                <!--                                                        </div>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">-->
+                                <!--                                                        <label for="bank_iban_no" class="form1-label-colors">-->
+                                <!--                                                            IBAN no-->
+                                <!--                                                        </label>-->
+
+                                <!--                                                        <input type="text" class="form-control" id="bank_iban_no"-->
+                                <!--                                                               t-att-value="employee_info.bank_account_id.acc_number"-->
+                                <!--                                                               placeholder="Enter Iban number"-->
+                                <!--                                                               t-att-disabled="'disabled' if employee_info.bank_account_id.acc_number else None"/>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="error">-->
+
+                                <!--                                                    </div>-->
+                                <!--                                                </div>-->
+
+                                <!--                                                <div class="row">-->
+                                <!--                                                    <div class="col-12 text-right">-->
+                                <!--                                                        <button type="submit" class="btn "-->
+                                <!--                                                                style="background:#345E90; color:#fff"-->
+                                <!--                                                                t-att-disabled="'disabled' if (employee_info.bank_account_id.acc_holder_name and-->
+                                <!--                                                            employee_info.bank_account_id.bank_id.name and-->
+                                <!--                                                            employee_info.bank_account_id.acc_number ) else None">-->
+                                <!--                                                            Add Bank Details-->
+                                <!--                                                        </button>-->
+                                <!--                                                    </div>-->
+
+                                <!--                                                </div>-->
+                                <!--                                            </form>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
+
+                                <!--                            CONTRACT INFO SECTION                       -->
+
+                                <!--                                <div id="contract_info" class="tab-pane fade">-->
+                                <!--                                    <div class="mt-5 mb-5">-->
+                                <!--                                        <h5 style="color: #345E90;" class="ml-2 ml-md-0">Contract Info</h5>-->
+                                <!--                                        <div class="p-4 section-color">-->
+                                <!--                                            <form id="contractForm">-->
+                                <!--                                                <div class="form-row ">-->
+                                <!--                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">-->
+                                <!--                                                        <label for="contract_type" class="form1-label-colors">-->
+                                <!--                                                            Contract Type-->
+                                <!--                                                        </label>-->
+
+                                <!--                                                        <select id="contract_type"-->
+                                <!--                                                                class="form-control form1-label-colors custom-select"-->
+                                <!--                                                                t-att-disabled="employee_info.contract_ids.contract_type_id and 'disabled' or None">-->
+                                <!--                                                            <option value=""-->
+                                <!--                                                                    t-att-selected="selected">-->
+                                <!--                                                                Select Contract Type-->
+                                <!--                                                            </option>-->
+                                <!--                                                            <t t-foreach="employment_options" t-as="option">-->
+                                <!--                                                                <option t-att-value="option.id"-->
+                                <!--                                                                        t-att-selected="'selected' if employee_info.contract_ids.contract_type_id.id == option.id else None"-->
+                                <!--                                                                >-->
+                                <!--                                                                    <t t-esc="option.name"/>-->
+                                <!--                                                                </option>-->
+                                <!--                                                            </t>-->
+                                <!--                                                        </select>-->
+                                <!--                                                        <div class="error">-->
+
+                                <!--                                                        </div>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">-->
+                                <!--                                                        <label for="contract_start_date" class="form1-label-colors">-->
+                                <!--                                                            Contract Start Date-->
+                                <!--                                                        </label>-->
+                                <!--                                                        <div class="input-group">-->
+                                <!--                                                            <input type="text" class="form-control form1-label-colors"-->
+                                <!--                                                                   id="contract_start_date"-->
+                                <!--                                                                   placeholder="From date"-->
+                                <!--                                                                   t-att-value="employee_info.contract_ids.date_start"-->
+                                <!--                                                                   t-att-disabled="'disabled' if employee_info.contract_ids.date_start else None"/>-->
+                                <!--                                                            <span class="input-group-append">-->
+                                <!--                                                                <span class="input-group-text bg-white">-->
+                                <!--                                                                    <i class="fa fa-calendar"></i>-->
+                                <!--                                                                </span>-->
+                                <!--                                                            </span>-->
+                                <!--                                                        </div>-->
+                                <!--                                                        <div class="error">-->
+
+                                <!--                                                        </div>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="form-group col-12 col-md-4 pl-md-3 mt-n2 mt-md-0">-->
+                                <!--                                                        <label for="contract_end_date" class="form1-label-colors">-->
+                                <!--                                                            Contract End Date-->
+                                <!--                                                        </label>-->
+                                <!--                                                        <div class="input-group">-->
+                                <!--                                                            <input type="text" class="form-control form1-label-colors"-->
+                                <!--                                                                   id="contract_end_date"-->
+                                <!--                                                                   placeholder="From date"-->
+                                <!--                                                                   t-att-value="employee_info.contract_ids.date_end"-->
+                                <!--                                                                   t-att-disabled="'disabled' if employee_info.contract_ids.date_end else None"/>-->
+                                <!--                                                            <span class="input-group-append">-->
+                                <!--                                                                <span class="input-group-text bg-white">-->
+                                <!--                                                                    <i class="fa fa-calendar"></i>-->
+                                <!--                                                                </span>-->
+                                <!--                                                            </span>-->
+                                <!--                                                        </div>-->
+                                <!--                                                    </div>-->
+                                <!--                                                    <div class="error">-->
+                                <!--                                                    </div>-->
+                                <!--                                                </div>-->
+                                <!--                                            </form>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <div id="overlay"></div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"/>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"/>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+                <script type="module" src="kyan_employee_portal/static/src/js/submit_forms.js"/>
+                <script type="script" src="kyan_employee_portal/static/src/js/overlay.js"/>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                    if ($("#no_employee_alert").length) {
+                    Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: $("#no_employee_alert").text(),
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 3000
+                    });
+                    }
+                    });
+                </script>
+
+            </body>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_job_requisition_request" name="Requisition_request" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <t t-set="title">Requisition Request</t>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+                <link rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+            </head>
+            <body>
+                <t t-call="kyan_employee_portal.portal_navigation"/>
+                <div class="content">
+                    <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">Employee Self Service Portal</h4>
+                    <p class="ml-2 ml-md-5 mt-n1 mt-md-0 subheading_text_control" style="color: #345E90;">Self Services
+                    </p>
+                    <hr/>
+                    <div class="mian_content mt-5  mt-md-5 mt-md-5 ml-md-5">
+                        <h5 style="color: #345E90;" class="ml-3 ml-md-0">Requested By</h5>
+                        <div class="p-4 section-color">
+                            <div class="form-row">
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_id" class="form1-label-colors">Employee ID</label>
+                                    <input type="text" t-att-value="employee_info.id" class="form-control"
+                                           id="employee_id" placeholder="" disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_name" class="form1-label-colors">Employee Name</label>
+                                    <input type="text" t-att-value="employee_info.name" class="form-control"
+                                           id="employee_name" placeholder="" disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_position" class="form1-label-colors">Position</label>
+                                    <input type="text" t-att-value="employee_info.job_id.name" class="form-control"
+                                           id="employee_position" placeholder="" disabled="disabled"/>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4 px-3">
+                                    <label for="employee_department" class="form1-label-colors">Department/College
+                                    </label>
+                                    <input type="text" t-att-value="employee_info.department_id.name"
+                                           class="form-control" id="employee_department" placeholder=""
+                                           disabled="disabled"/>
+                                </div>
+                                <div class="form-group col-12 col-md-4 pl-md-3  px-3 mt-n2 mt-md-0 ">
+                                    <label for="request_date" class="form1-label-colors">
+                                        Date From
+
+                                    </label>
+                                    <div class="input-group pl-0">
+                                        <input type="text" class="form-control form1-label-colors"
+                                               id="request_date"
+                                               disabled="disabled"
+                                               t-att-value="job_request.form_request_date"
+                                               placeholder="From date"/>
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-white material-symbols-outlined">
+                                                calendar_month
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 col-md-4 pl-md-3  px-3 mt-n2 mt-md-0 ">
+                                    <label for="request_expiry_date" class="form1-label-colors">
+                                        Date From
+
+                                    </label>
+                                    <div class="input-group pl-0">
+                                        <input type="text" class="form-control form1-label-colors"
+                                               id="request_expiry_date"
+                                               disabled="disabled"
+                                               t-att-value="job_request.form_expiry_date"
+                                               placeholder="From date"/>
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-white material-symbols-outlined">
+                                                calendar_month
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="pl-3">
+                                    <p>This Form is valid only six (6) months from the date of submission</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="requisitionRequestForm">
+                        <div class="mian_content mt-5 mt-md-5 ml-0 ml-md-5 ">
+                            <h5 style="color: #345E90;" class="ml-3 ml-md-0 ">Position Requisition Request</h5>
+                            <div class="section-color p-4">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="position_request" class="custom_label_color">Position Request
+                                        </label>
+                                        <t t-foreach="position_request" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="position_request"
+                                                       id="position_request_#{option[0]}"
+                                                       t-att-checked="job_request.position_request == option[0]"
+                                                       t-att-value="option[0]"
+                                                       t-att-disabled="'disabled' if job_request.position_request else None"
+                                                />
+                                                <label class="form1-label-colors"
+                                                       for="position_request_#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="position_type" class="custom_label_color">Position Type
+                                        </label>
+                                        <t t-foreach="position_type" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="position_type"
+                                                       id="position_type#{option[0]}"
+                                                       t-att-value="option[0]"
+                                                       t-att-checked="job_request.position_type == option[0]"
+                                                       t-att-disabled="'disabled' if job_request.position_type else None"
+                                                />
+                                                <label class="form1-label-colors"
+                                                       for="position_type#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="employment_status" class="custom_label_color">Employee Status
+                                        </label>
+                                        <t t-foreach="employment_status" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input  " type="radio"
+                                                       name="employment_status"
+                                                       id="employment_status#{option[0]}"
+                                                       t-att-checked="job_request.employment_status == option[0]"
+                                                       t-att-disabled="'disabled' if job_request.employment_status else None"
+                                                       t-att-value="option[0]"/>
+                                                <label class="form1-label-colors"
+                                                       for="employment_status#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 px-3">
+                                        <div class="form-group">
+                                            <label for="no_of_positions" class="custom_label_color">No of Positions
+                                            </label>
+                                            <input type="number" class="form-control form1-label-colors"
+                                                   t-att-value="job_request.no_of_positions"
+                                                   t-att-disabled="'disabled' if job_request.no_of_positions else None"
+                                                   id="no_of_positions"
+                                                   placeholder=""/>
+                                            <div class="error">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="monthly_basic_salary" class="custom_label_color mt-2">
+                                                Recommended
+                                                Monthly Basic Salary
+                                            </label>
+                                            <input type="number" class="form-control form1-label-colors"
+                                                   t-att-value="job_request.monthly_basic_salary"
+                                                   id="monthly_basic_salary"
+                                                   t-att-disabled="'disabled' if job_request.monthly_basic_salary else None"
+                                                   placeholder=""/>
+                                            <!--                                       t-att-disabled=" None if job_request.monthly_basic_salary else 'disabled'"-->
+                                            <div class="error">
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-row mt-3">
+                                    <div class="form-group col-md-3 px-3 ">
+                                        <label for="line_manager" class="custom_label_color" name="">Line Manager
+                                        </label>
+                                        <select
+                                                id="line_manager"
+                                                name="line_manager"
+                                                class="form-control form1-label-colors custom-select"
+                                                t-att-disabled="job_request.manager_id and 'disabled' or None">
+                                            <option value=""
+                                                    t-att-selected="not manager_id">
+                                                Select line Manager
+                                            </option>
+                                            <t t-foreach="manager_id" t-as="option">
+                                                <option t-att-value="option.id"
+                                                        t-att-disabled="'disabled' if job_request.manager_id.id else None"
+                                                        t-att-selected="job_request.manager_id.id == option.id">
+                                                    <t t-esc="option.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                        <div class="error">
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="required_position" class="custom_label_color">Required Position
+                                        </label>
+                                        <input type="text" class="form-control form1-label-colors" id="required_position"
+                                               t-att-value="job_request.required_position"
+                                               t-att-disabled="'disabled' if job_request.required_position else None "
+                                               placeholder="Enter position Requirement"/>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="grade" class="custom_label_color">Grade</label>
+                                        <select
+                                                id="grade"
+                                                name="grade"
+                                                class="form-control form1-label-colors custom-select"
+                                                t-att-disabled="job_request.grade_id.id and 'disabled' or None">
+                                            <option value=""
+                                                    t-att-selected="not grade_id">
+                                                Select Grade
+                                            </option>
+                                            <t t-foreach="grade_id" t-as="option">
+                                                <option t-att-value="option.id"
+                                                        t-att-disabled="'disabled' if job_request.grade_id.id else None"
+                                                        t-att-selected="job_request.grade_id.id == option.id ">
+                                                    <t t-esc="option.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12 col-md-3 pl-md-3  px-3 mt-n2 mt-md-0 ">
+                                        <label for="expected_joining_date" class="custom_label_color">
+                                            Date From
+
+                                        </label>
+                                        <div class="input-group pl-0">
+                                            <input type="text" class="form-control form1-label-colors"
+                                                   id="expected_joining_date"
+                                                   t-att-value="job_request.expected_joining_date"
+                                                   t-att-disabled="'disabled' if job_request.expected_joining_date else None"
+                                                   placeholder="From date"/>
+                                            <span class="input-group-append">
+                                                <span class="input-group-text bg-white material-symbols-outlined">
+                                                    calendar_month
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row mt-3">
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="contract_duration" class="custom_label_color">Duration of Contract
+                                        </label>
+                                        <t t-foreach="contract_duration" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="contract_duration"
+                                                       id="contract_duration#{option[0]}"
+                                                       t-att-checked="job_request.contract_duration == option[0]"
+                                                       t-att-disabled="'disabled' if job_request.contract_duration else None "
+                                                       t-att-value="option[0]"/>
+                                                <label class="form1-label-colors"
+                                                       for="contract_duration#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="nationality" class="custom_label_color">Nationality
+                                        </label>
+                                        <t t-foreach="nationality" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="nationality"
+                                                       t-attf-id="nationality#{option[0]}"
+                                                       t-att-disabled="'disabled' if job_request.nationality else None"
+                                                       t-att-checked="job_request.nationality == option[0]"
+                                                       t-att-value="option[0]"/>
+                                                <label class="form1-label-colors"
+                                                       t-attf-for="nationality#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="gender" class="custom_label_color">Gender
+                                        </label>
+                                        <t t-foreach="gender" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="gender"
+                                                       id="gender#{option[0]}"
+                                                       t-att-checked="job_request.gender == option[0]"
+                                                       t-att-disabled="'disabled' if job_request.gender else None"
+                                                       t-att-value="option[0]"/>
+                                                <label class="form1-label-colors"
+                                                       for="gender#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3 px-3">
+                                        <label for="budgeted" class="custom_label_color">Budgeted
+                                        </label>
+                                        <t t-foreach="budgeted" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="budgeted"
+                                                       id="budgeted#{option[0]}"
+                                                       t-att-checked="job_request.budgeted == option[0]"
+                                                       t-att-disabled="'disabled' if job_request.budgeted else None"
+                                                       t-att-value="option[0]"/>
+                                                <label class="form1-label-colors"
+                                                       for="budgeted#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+
+                                        <input type="text" class="form-control form1-label-colors" id="external_funds_id"
+                                               t-att-value="job_request.external_funds"
+                                               t-att-disabled="'disabled' if job_request.external_funds else None"
+                                               placeholder="Ref # from external fund"/>
+
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mian_content mt-5 mt-5 ml-0 ml-md-5  ">
+                            <h5 style="color: #345E90;" class="ml-3 ml-md-0">Position Requisition Request</h5>
+
+                            <div class="section-color p-4">
+                                <div class="form-row ">
+                                    <div class="form-group col-12 px-3">
+                                        <label for="purpose_of_position" class="custom_label_color">Purpose Of Position
+                                        </label>
+                                        <input type="text" class="form-control form1-label-colors" id="purpose_of_position"
+                                               t-att-disabled="'disabled' if job_request.purpose_of_position else None"
+                                               t-att-value="job_request.purpose_of_position"
+                                               placeholder="Enter position Purpose"/>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row ">
+                                    <div class="form-group col-12 px-3">
+                                        <label for="main_accountability" class="custom_label_color">Main Accountability
+                                        </label>
+                                        <input type="text" class="form-control form1-label-colors" id="main_accountability"
+                                               t-att-disabled="'disabled' if job_request.main_accountability else None"
+                                               t-att-value="job_request.main_accountability"
+                                               placeholder="Enter accountability"/>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row  mt-3">
+                                    <div class="form-group col-md-4 px-3 ">
+                                        <label class="custom_label_color">Education</label>
+                                        <div class="form-row">
+                                            <t t-foreach="education" t-as="edu">
+                                                <div class="form-group col-md-6 px-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="education"
+                                                               t-att-value="edu.id"
+                                                               t-att-disabled="'disabled' if job_request.education_ids else None"
+                                                               t-att-checked="'checked' if edu.id in job_request.education_ids.ids else None"
+                                                               t-att-id="edu.name"/>
+                                                        <label class="form-check-label form1-label-colors"
+                                                               t-att-for="edu.name">
+                                                            <t t-esc="edu.name"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </t>
+
+                                            <input type="text" class="form-control form1-label-colors"
+                                                   t-att-value="job_request.other_education"
+                                                   t-att-disabled="'disabled' if job_request.other_education or job_request.education_ids else None"
+                                                   id="other_education"
+                                                   name="other_education"
+                                                   placeholder="Other Education"/>
+                                            <div class="error_education">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 px-3">
+                                        <label class="custom_label_color">Language</label>
+                                        <t t-foreach="language" t-as="lan">
+                                            <div class="form-group col-md-6 px-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input " type="checkbox" name="language"
+                                                           t-att-value="lan.id"
+                                                           t-att-disabled="'disabled' if job_request.language_ids else None"
+                                                           t-att-checked="'checked' if lan.id in job_request.language_ids.ids else None"
+                                                           t-att-id="lan.name"/>
+                                                    <label class="form-check-label form1-label-colors"
+                                                           t-att-for="lan.name">
+                                                        <t t-esc="lan.name"/>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </t>
+
+                                        <input type="text" class="form-control form1-label-colors mt-3"
+                                               id="other_languages"
+                                               t-att-value="job_request.other_languages"
+                                               t-att-disabled="'disabled' if job_request.other_languages  or job_request.language_ids else None"
+                                               placeholder="Other Language"/>
+                                        <div class="error_language">
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-4 px-3 ">
+                                        <label class="custom_label_color">Computer Knowledge</label>
+                                        <t t-foreach="computer_knowledge" t-as="knowledge">
+                                            <div class="form-group col-md-6 px-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           name="computer_knowledge"
+                                                           t-att-value="knowledge.id"
+                                                           t-att-disabled="'disabled' if job_request.computer_knowledge_ids else None"
+                                                           t-att-checked="'checked' if knowledge.id in job_request.computer_knowledge_ids.ids else None"
+                                                           t-att-id="knowledge.name"/>
+                                                    <label class="form-check-label form1-label-colors"
+                                                           t-att-for="knowledge.name">
+                                                        <t t-esc="knowledge.name"/>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </t>
+
+                                        <input type="text" class="form-control form1-label-colors mt-3"
+                                               t-att-value="job_request.other_computer_skills"
+                                               t-att-disabled="'disabled' if job_request.other_computer_skills or job_request.computer_knowledge_ids else None"
+                                               id="other_computer_skills"
+                                               placeholder="Other Computer Skills"/>
+
+                                        <div class="error_computer_knowledge">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row  mt-3">
+
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="experience" class="custom_label_color">Duration Year/s of
+                                            Experience:of Contract
+                                        </label>
+                                        <t t-foreach="experience" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="experience"
+                                                       t-att-disabled="'disabled' if job_request.experience else None"
+                                                       t-att-checked="job_request.experience == option[0]"
+                                                       id="experience#{option[0]}" t-att-value="option[0]"/>
+                                                <label class="form1-label-colors"
+                                                       for="experience#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 px-3">
+                                        <label class="custom_label_color">Professional Certificate</label>
+                                        <input type="text"
+                                               class="form-control form1-label-colors"
+                                               id="certificate1"
+                                               t-att-value="job_request.certificate1"
+                                               t-att-disabled="'disabled' if job_request.certificate1 else None"
+                                               placeholder="First Certificate"/>
+                                        <input type="text"
+                                               class="form-control form1-label-colors mt-2"
+                                               id="certificate2"
+                                               t-att-value="job_request.certificate2"
+                                               t-att-disabled="'disabled' if job_request.certificate2 else None"
+                                               placeholder="Second Certificate"/>
+                                        <input type="text"
+                                               class="form-control form1-label-colors mt-2"
+                                               id="certificate3"
+                                               t-att-value="job_request.certificate3"
+                                               t-att-disabled="'disabled' if job_request.certificate3 else None"
+                                               placeholder="Third Certificate"/>
+                                    </div>
+
+                                    <div class="form-group col-md-4 px-3">
+                                        <label for="competencies" class="custom_label_color">Key Competencies</label>
+                                        <input type="text" class="form-control form1-label-colors" id="competencies"
+                                               t-att-value="job_request.key_competencies"
+                                               t-att-disabled="'disabled' if job_request.key_competencies else None"
+                                               placeholder="linux,Network,Infrastructures"/>
+
+                                        <div class="custom-file mt-2">
+                                            <input type="file" class="custom-file-input form1-label-colors"
+                                                   id="attachment"
+                                                   name="attachment"
+                                                   t-att-value="job_request.attachment"
+                                                   t-att-disabled="'disabled' if job_request.attachment else None"/>
+
+                                            <label t-if="job_request.attachment_name"
+                                                   class="custom-file-label"
+                                                   for="attachment"
+                                                   t-esc="job_request.attachment_name"/>
+                                            <label t-else="" class="custom-file-label"
+                                                   for="attachment">Choose File ...
+                                            </label>
+                                        </div>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mian_content mt-5 mt-5 ml-0 ml-md-5   ">
+                            <h5 style="color: #345E90;" class="ml-3 ml-md-0">Workspace Allocation</h5>
+                            <div class="section-color p-4 ">
+                                <div class="form-row  mb-2 ">
+                                    <div class="form-group  col-12 col-md-3 px-3 ">
+                                        <label for="office_space_available" class="custom_label_color">Office Space
+                                            Available
+                                        </label>
+                                        <t t-foreach="office_space_available" t-as="option">
+                                            <div class="form-check ml-3">
+                                                <input class="form-check-input " type="radio"
+                                                       name="office_space_available"
+                                                       t-att-disabled="'disabled' if job_request.office_space_available else None"
+                                                       t-att-checked="job_request.office_space_available == option[0]"
+                                                       id="office_space_available#{option[0]}" t-att-value="option[0]"/>
+                                                <label class="form1-label-colors"
+                                                       for="office_space_available#{option[0]}">
+                                                    <t t-esc="option[1]"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                        <div class="error">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12 col-md-9 px-3  ">
+                                        <label for="space_availability" class="custom_label_color">If "Yes"
+                                            <span>(Type Of Office)</span>
+                                        </label>
+                                        <br/>
+                                        <div class=" d-block d-md-flex justify-content-between">
+                                            <t t-foreach="space_availability" t-as="option">
+                                                <div class="form-check ml-3 ">
+                                                    <input class="form-check-input " type="radio"
+                                                           name="space_availability"
+                                                           t-att-disabled="'disabled' if job_request.space_availability else None"
+                                                           t-att-checked="job_request.space_availability == option[0]"
+                                                           id="space_availability#{option[0]}" t-att-value="option[0]"/>
+                                                    <label class="form1-label-colors"
+                                                           for="space_availability#{option[0]}">
+                                                        <t t-esc="option[1]"/>
+                                                    </label>
+                                                </div>
+                                            </t>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-md-4 mb-2">
+                                                <input type="text" class="form-control form1-label-colors"
+                                                       id="room_no"
+                                                       t-att-disabled="'disabled' if job_request.room_no else None"
+                                                       t-att-value="job_request.room_no"
+                                                       placeholder="BI.049"/>
+                                                <div class="error">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-4 mb-2">
+                                                <input type="text" class="form-control form1-label-colors"
+                                                       id="floor_no"
+                                                       t-att-disabled="'disabled' if job_request.floor_no else None"
+                                                       t-att-value="job_request.floor_no"
+                                                       placeholder="1"/>
+                                                <div class="error">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-4 mb-2">
+                                                <input type="text" class="form-control form1-label-colors"
+                                                       id="building_name"
+                                                       t-att-disabled="'disabled' if job_request.building_name else None"
+                                                       t-att-value="job_request.building_name"
+                                                       placeholder="Business"/>
+                                                <div class="error">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="error_space_availability">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row pr-2 pr-md-2 pt-2">
+                                <div class="col-12 text-right ">
+                                    <button type="submit" class="btn "
+                                            style="background:#345E90; color:#fff"
+                                            t-att-disabled="'disabled' if job_request.id else None">
+                                        Create Request
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                 <div id="overlay"></div>
+                <!--                <script src="https://code.jquery.com/jquery-3.6.0.min.js"/>-->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"/>
+                <script type="module" src="/kyan_employee_portal/static/src/js/requisition_request.js"/>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+                <script  type="script" src="kyan_employee_portal/static/src/js/overlay.js"/>
+
+            </body>
+        </t>
+    </template>
+</odoo>
+

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="dashboard_main" name="Dashboard" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <t t-set="title">Dashboard</t>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/dashboard.css"/>
+            </head>
+            <body>
+                <t t-call="kyan_employee_portal.portal_navigation"/>
+                <div class="Helpdesk_dashboard">
+                    <div class="container-fluid o_Helpdesk_dashboard">
+                        <div class="sales-dashboard">
+                            <h4 class="text-primary text-center pt-5 helpdesk-top-cous">Dashboard</h4>
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Card 1 -->
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="dashboard-card" id="profile">
+                                            <div class="card-icon">
+                                                <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                                            </div>
+                                            <div class="card-title">YOUR DETAILS</div>
+                                            <div class="prof-card-value">
+                                                <a href="/my_profile" id="viewDetails">Views</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 2 -->
+
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="dashboard-card" id="leave">
+                                            <div class="card-icon">
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </div>
+                                            <div class="card-value">
+                                                <div class="leave-details">
+                                                    <div class="remaining">
+                                                        <span class="label">Remaining</span>
+                                                        <span class="value">
+                                                            <t t-esc="remaining_leaves"/>
+                                                        </span>
+                                                    </div>
+                                                    <div class="consumed">
+                                                        <span class="label">Consumed</span>
+                                                        <span class="value">
+                                                            <t t-esc="total_leaves_duration"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 3 -->
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="dashboard-card" id="expense">
+                                            <div class="card-icon">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="card-title">TOTAL EXPENSE</div>
+                                            <div class="card-value">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <t t-esc="total_expense"/>
+                                                    </div>
+                                                    <div class="col-md-6 text-right">
+                                                        <a href="/expense_requests" id="viewExpenseDetails">Views</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-5">
+                                    <!-- Card 1 -->
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="dashboard-card" id="profile">
+                                            <div class="card-icon">
+                                                <i class="fas fa-hand-holding-usd"></i>
+                                            </div>
+                                            <div class="card-title">SALARY ADVANCE</div>
+                                            <div class="card-value">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <t t-esc="total_salary"/>
+                                                    </div>
+                                                    <div class="col-md-6 text-right">
+                                                        <a href="/salary_loan_request" id="viewExpenseDetails">Views</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 2 -->
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="dashboard-card" id="profile">
+                                            <div class="card-icon">
+                                                <i class="fas fa-hand-holding-usd"></i>
+                                            </div>
+                                            <div class="card-title">LOAN</div>
+                                            <div class="card-value">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <t t-esc="total_loan"/>
+                                                    </div>
+                                                    <div class="col-md-6 text-right">
+                                                        <a href="/all_loan_request" id="viewExpenseDetails">Views</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 3 -->
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="dashboard-card" id="expense">
+                                            <div class="card-icon">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="card-title">ACCIDENT/INCIDENT</div>
+                                            <div class="card-value">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <t t-esc="total_acc_inc"/>
+                                                    </div>
+                                                    <div class="col-md-6 text-right">
+                                                        <a href="/accident_requests" id="viewExpenseDetails">Views</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Cards layout remains unchanged -->
+                                <div class="row pt-5">
+                                    <div class="col-6">
+                                        <h4 class="text-center">Summary of Leave, Expenses, Salary, and Incidents</h4>
+                                        <canvas id="summaryChart"></canvas>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4 class="text-center">Leave, Expense, and Incident Distribution</h4>
+                                        <canvas id="distributionChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="application/json" id="chart-data">
+                    {
+                    "remainingLeaves":<t t-esc="remaining_leaves or 0"/>,
+                    "consumedLeaves":<t t-esc="total_leaves_duration or 0"/>,
+                    "totalExpense":<t t-esc="total_expense or 0"/>,
+                    "totalSalary":<t t-esc="total_salary or 0"/>,
+                    "totalLoan":<t t-esc="total_loan or 0"/>,
+                    "totalAccidentIncident":
+                    <t t-esc="total_acc_inc or 0"/>
+                    }
+                </script>
+                <script type="module" src="/kyan_employee_portal/static/src/js/dashboard.js"/>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            </body>
+        </t>
+    </template>
+
+
+    <!--    <template id="dashboard_main" name="Dashboard" customize_show="True" priority="30">-->
+    <!--        <t t-call="web.layout">-->
+    <!--            <t t-set="title">Dashboard</t>-->
+    <!--            <head>-->
+    <!--                <meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+    <!--                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>-->
+    <!--                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>-->
+    <!--                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/dashboard.css"/>-->
+    <!--            </head>-->
+    <!--            <body>-->
+    <!--                <t t-call="kyan_employee_portal.portal_navigation"/>-->
+    <!--                <div class="Helpdesk_dashboard">-->
+    <!--                    <div class="container-fluid o_Helpdesk_dashboard">-->
+    <!--                        <div class="sales-dashboard">-->
+    <!--                            <h4 class="text-primary text-center pt-5 helpdesk-top-cous">Dashboard</h4>-->
+    <!--                            <div class="container">-->
+    <!--                                <div class="appointment-cards pb-3">-->
+    <!--                                    <div class="ticket-cards pt-5">-->
+    <!--                                        <div class="row">-->
+    <!--                                            &lt;!&ndash; Card 1 &ndash;&gt;-->
+    <!--                                            <div class="col-lg-4 col-md-6 col-sm-12">-->
+    <!--                                                <div class="dashboard-card" id="profile">-->
+    <!--                                                    <div class="card-icon">-->
+    <!--                                                        <i class="fas fa-user"></i> &lt;!&ndash; Font Awesome user icon &ndash;&gt;-->
+    <!--                                                    </div>-->
+    <!--                                                    <div class="card-title">YOUR DETAILS</div>-->
+    <!--                                                    <div class="prof-card-value">-->
+    <!--                                                        <a href="/my_profile" id="viewDetails">Views</a>-->
+    <!--                                                    </div>-->
+    <!--                                                </div>-->
+    <!--                                            </div>-->
+    <!--                                            &lt;!&ndash; Card 2 &ndash;&gt;-->
+
+    <!--                                            <div class="col-lg-4 col-md-6 col-sm-12">-->
+    <!--                                                <div class="dashboard-card" id="leave">-->
+    <!--                                                    <div class="card-icon">-->
+    <!--                                                        <i class="fas fa-calendar-alt"></i>-->
+    <!--                                                    </div>-->
+    <!--                                                    <div class="card-value">-->
+    <!--                                                        <div class="leave-details">-->
+    <!--                                                            <div class="remaining">-->
+    <!--                                                                <span class="label">Remaining</span>-->
+    <!--                                                                <span class="value">-->
+    <!--                                                                    <t t-esc="remaining_leaves"/>-->
+    <!--                                                                </span>-->
+    <!--                                                            </div>-->
+    <!--                                                            <div class="consumed">-->
+    <!--                                                                <span class="label">Consumed</span>-->
+    <!--                                                                <span class="value">-->
+    <!--                                                                    <t t-esc="total_leaves_duration"/>-->
+    <!--                                                                </span>-->
+    <!--                                                            </div>-->
+    <!--                                                        </div>-->
+    <!--                                                    </div>-->
+    <!--                                                </div>-->
+    <!--                                            </div>-->
+
+    <!--                                            &lt;!&ndash; Card 3 &ndash;&gt;-->
+    <!--                                            <div class="col-lg-4 col-md-6 col-sm-12">-->
+    <!--                                                <div class="dashboard-card" id="expense">-->
+    <!--                                                    <div class="card-icon">-->
+    <!--                                                        <i class="fas fa-wallet"></i>-->
+    <!--                                                    </div>-->
+    <!--                                                    <div class="card-title">TOTAL EXPENSE</div>-->
+    <!--                                                    <div class="card-value">-->
+    <!--                                                        <div class="row">-->
+    <!--                                                            <div class="col-md-6">-->
+    <!--                                                                <t t-esc="total_expense"/>-->
+    <!--                                                            </div>-->
+    <!--                                                            <div class="col-md-6 text-right">-->
+    <!--                                                                <a href="/expense_requests" id="viewExpenseDetails">Views</a>-->
+    <!--                                                            </div>-->
+    <!--                                                        </div>-->
+    <!--                                                    </div>-->
+    <!--                                                </div>-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                        <div class="row mt-5">-->
+    <!--                                            &lt;!&ndash; Card 1 &ndash;&gt;-->
+    <!--                                            <div class="col-lg-4 col-md-6 col-sm-12">-->
+    <!--                                                <div class="dashboard-card" id="profile">-->
+    <!--                                                    <div class="card-icon">-->
+    <!--                                                        <i class="fas fa-hand-holding-usd"></i>-->
+    <!--                                                    </div>-->
+    <!--                                                    <div class="card-title">SALARY ADVANCE</div>-->
+    <!--                                                    <div class="card-value">-->
+    <!--                                                        <div class="row">-->
+    <!--                                                            <div class="col-md-6">-->
+    <!--                                                                <t t-esc="total_salary"/>-->
+    <!--                                                            </div>-->
+    <!--                                                            <div class="col-md-6 text-right">-->
+    <!--                                                                <a href="/salary_loan_request" id="viewExpenseDetails">Views</a>-->
+    <!--                                                            </div>-->
+    <!--                                                        </div>-->
+    <!--                                                    </div>-->
+    <!--                                                </div>-->
+    <!--                                            </div>-->
+    <!--                                            &lt;!&ndash; Card 2 &ndash;&gt;-->
+    <!--                                            <div class="col-lg-4 col-md-6 col-sm-12">-->
+    <!--                                                <div class="dashboard-card" id="profile">-->
+    <!--                                                    <div class="card-icon">-->
+    <!--                                                        <i class="fas fa-hand-holding-usd"></i>-->
+    <!--                                                    </div>-->
+    <!--                                                    <div class="card-title">LOAN</div>-->
+    <!--                                                    <div class="card-value">-->
+    <!--                                                        <div class="row">-->
+    <!--                                                            <div class="col-md-6">-->
+    <!--                                                                <t t-esc="total_loan"/>-->
+    <!--                                                            </div>-->
+    <!--                                                            <div class="col-md-6 text-right">-->
+    <!--                                                                <a href="/all_loan_request" id="viewExpenseDetails">Views</a>-->
+    <!--                                                            </div>-->
+    <!--                                                        </div>-->
+    <!--                                                    </div>-->
+    <!--                                                </div>-->
+    <!--                                            </div>-->
+    <!--                                            &lt;!&ndash; Card 3 &ndash;&gt;-->
+    <!--                                            <div class="col-lg-4 col-md-6 col-sm-12">-->
+    <!--                                                <div class="dashboard-card" id="expense">-->
+    <!--                                                    <div class="card-icon">-->
+    <!--                                                        <i class="fas fa-wallet"></i>-->
+    <!--                                                    </div>-->
+    <!--                                                    <div class="card-title">ACCIDENT/INCIDENT</div>-->
+    <!--                                                    <div class="card-value">-->
+    <!--                                                        <div class="row">-->
+    <!--                                                            <div class="col-md-6">-->
+    <!--                                                                <t t-esc="total_acc_inc"/>-->
+    <!--                                                            </div>-->
+    <!--                                                            <div class="col-md-6 text-right">-->
+    <!--                                                                <a href="/accident_requests" id="viewExpenseDetails">Views</a>-->
+    <!--                                                            </div>-->
+    <!--                                                        </div>-->
+    <!--                                                    </div>-->
+    <!--                                                </div>-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                        <div class="row pt-5">-->
+    <!--                                            <div class="col-6">-->
+    <!--                                                <h4 class="text-center">Summary of Leave, Expenses, Salary</h4>-->
+    <!--                                                <canvas id="summaryChart"></canvas>-->
+    <!--                                            </div>-->
+    <!--                                            <div class="col-6">-->
+    <!--                                                <h4 class="text-center">Leave and Expense Distribution</h4>-->
+    <!--                                                <canvas id="distributionChart"></canvas>-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <script type="application/json" id="chart-data">-->
+    <!--                    {-->
+    <!--                    "remainingLeaves":<t t-esc="remaining_leaves or 0"/>,-->
+    <!--                    "consumedLeaves":<t t-esc="total_leaves_duration or 0"/>,-->
+    <!--                    "totalExpense":<t t-esc="total_expense or 0"/>,-->
+    <!--                    "totalSalary":<t t-esc="total_salary or 0"/>,-->
+    <!--                    "totalLoan":-->
+    <!--                    <t t-esc="total_loan or 0"/>-->
+    <!--                    }-->
+    <!--                </script>-->
+    <!--                <script type="module" src="/kyan_employee_portal/static/src/js/dashboard.js"/>-->
+    <!--                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+    <!--            </body>-->
+    <!--        </t>-->
+    <!--    </template>-->
+</odoo>
+

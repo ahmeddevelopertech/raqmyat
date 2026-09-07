@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="arb_redirect_form_view" name="Al Rajhi ARB Redirect Form">
+        <t t-name="payment_alrajhi_arb.arb_redirect_form">
+            <script type="text/javascript">
+                // ARB bank-hosted payment page must be opened in the browser.
+                window.location.href = "<t t-esc='payment_url'/>";
+            </script>
+            <noscript>
+                <a t-att-href="payment_url">Continue to payment</a>
+            </noscript>
+        </t>
+    </template>
+</odoo>
+

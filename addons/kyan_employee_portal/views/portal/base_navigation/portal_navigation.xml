@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_navigation" name="Navigation" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <head>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/sideNav.css"/>
+                <link rel="stylesheet"
+                      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+            </head>
+            <body>
+                <aside class="sidebar  d-md-block" id="sidebar">
+                    <div class="sidebar-header">
+                        <t t-set="company" t-value="request.env.company"/>
+                        <img t-attf-src="data:image/*;base64,{{ company.logo }}" alt="logo"
+                             style="width:100px;height:70px;"/>
+                    </div>
+                    <ul class="sidebar-links">
+                        <h4>
+                            <span>Main Menu</span>
+                            <div class="menu-seperator"/>
+                        </h4>
+                        <li>
+                            <a href="/my">
+                                <span class="material-symbols-outlined">dashboard</span>Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/my_profile">
+                                <span class="material-symbols-outlined">account_circle</span>Profile
+                            </a>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Requests</span>
+                                <div class="menu-seperator"/>
+                            </h4>
+                            <a href="/leave_requests_details">
+                                <span class="material-symbols-outlined">calendar_clock</span>Leave Requests
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/expense_requests">
+                                <span class="material-symbols-outlined">receipt_long</span>Expense Request
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/all_loan_request">
+                                <span class="material-symbols-outlined">attach_money</span>Loan Request
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/salary_loan_request">
+                                <span class="material-symbols-outlined">attach_money</span>Salary Advance Request
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/accident_requests">
+                                <span class="material-symbols-outlined">emergency</span>Accident/Incident Request
+                            </a>
+                        </li>
+                        <h4>
+                            <span>Account</span>
+                            <div class="menu-seperator"/>
+                        </h4>
+                        <li>
+                            <a t-attf-href="/web/session/logout?redirect=/web/login?lang={{request.env.lang}}">
+                                <span class="material-symbols-outlined">logout</span>Logout
+                            </a>
+                        </li>
+                        <h4>
+                            <span>Language</span>
+                            <div class="menu-seperator"/>
+                        </h4>
+                        <li class="language-container">
+                            <a href="#" class="language-header">
+                                <span class="material-symbols-outlined">language</span>
+                                <!--                                <span class="language-label">Language</span>-->
+                            </a>
+                            <select id="language-selector" class="form-select custom-select">
+                                <option value="en_US">English</option>
+                                <option value="ar_001">Arabic</option>
+                            </select>
+                        </li>
+                    </ul>
+                </aside>
+                <nav class="navbar navbar-light  d-md-none  sticky-top" style="background:#345E90;">
+                    <a class="navbar-brand text-white" href="#">Motabaqah</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+                            aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar"
+                            style="border-color:white;">
+                        <span class="material-symbols-outlined" style="color: #fff;">menu</span>
+                    </button>
+                </nav>
+                <script src="/kyan_employee_portal/static/src/js/sideNav.js"/>
+                <script src="/kyan_employee_portal/static/src/js/language_switcher.js"/>
+            </body>
+        </t>
+    </template>
+</odoo>

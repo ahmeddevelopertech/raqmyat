@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem id="menu_sync_root"
+              name="Odoo Sync"
+              sequence="10"/>
+
+    <!-- Config Menu -->
+    <menuitem id="menu_sync_config"
+              name="Configurations"
+              parent="menu_sync_root"
+              action="action_sync_config"
+              sequence="10"/>
+
+    <!-- Logs Menu -->
+    <menuitem id="menu_sync_log"
+              name="Logs"
+              parent="menu_sync_root"
+              action="action_sync_log"
+              sequence="20"/>
+
+</odoo>

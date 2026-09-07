@@ -1,0 +1,194 @@
+.bg {
+    border: 1px solid red;
+}
+
+.mian_content {
+    width: 90%;
+}
+
+.rtl-input {
+    direction: rtl;
+}
+.section-color {
+    background: #fcfcfc;
+    border: 1px solid #Dcdcdc;
+}
+.form1-label-colors{
+    color: #8E8E8E;
+}
+.section-color span {
+    color: #8E8E8E;
+}
+.custom_label_color {
+    color: #343434;
+}
+.form-group .error {
+    color: #ff3333;
+    font-size: 11px;
+    height: 13px;
+}
+.error_education {
+    color: #ff3333;
+    font-size: 11px;
+    height: 13px;
+}
+.error_language {
+    color: #ff3333;
+    font-size: 11px;
+    height: 13px;
+}
+.error_computer_knowledge {
+    color: #ff3333;
+    font-size: 11px;
+    height: 13px;
+}
+.form-group.error input {
+    border-color: #ff3333;
+}
+.form-group.errorSelect select {
+    border-color: #ff3333;
+}
+
+.form-group.attachment-error .custom-file label {
+    border-color: #ff3333;
+}
+thead {
+        background: #345E90;
+        color: #fff;
+        /*font-size: 20px;*/
+    }
+
+table{
+    border: 2px solid #Dcdcdc;
+}
+.error-date{
+    border-color:red;
+}
+.error_space_availability{
+     color: #ff3333;
+    font-size: 11px;
+    height: 13px;
+}
+
+/*scrool tabs*/
+/*.nav-tabs-wrapper {*/
+/*    overflow-x: auto; !* Enable horizontal scrolling *!*/
+/*    white-space: nowrap; !* Prevent line breaks *!*/
+/*}*/
+
+/*.nav-tabs {*/
+/*    display: inline-flex; !* Ensure the list items are in a single line *!*/
+/*    flex-wrap: nowrap; !* Prevent wrapping of list items *!*/
+/*}*/
+
+/*.nav-item {*/
+/*    flex: 0 0 auto;*/
+/*    font-size: 10px;!* Prevent items from shrinking *!*/
+/*}*/
+
+/* scroll links*/
+.scrollable-nav-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    border-bottom: 1px solid #ddd; /* Optional: Add a border at the bottom */
+    background-color: #fff; /* Optional: Set background color */
+}
+
+.scrollable-nav {
+    display: flex; /* Align items horizontally */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-item {
+    flex: 0 0 auto; /* Prevent items from shrinking and wrapping */
+    margin: 0;
+
+}
+.control-font{
+    font-size: 13px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px; /* Adjust padding as needed */
+    text-decoration: none;
+    color: #000; /* Default text color */
+     /* Make text bold */
+}
+
+.nav-link.active {
+    color: #007bff; /* Active link color */
+    border-bottom: 2px solid #007bff;
+    /*padding: 3px!* Optional: underline for active item *!*/
+}
+.heading_text_control {
+    font-size: 30px;
+}
+.subheading_text_control {
+    font-size:15px;
+}
+.custom-select {
+    padding-right: 40px;
+    color: #8E8E8E;
+}
+
+@media (max-width: 767px) {
+    .mian_content {
+        width: 100%;
+    }
+     .heading_text_control{
+         font-size:18px;
+
+    }
+    .subheading_text_control{
+         font-size:12px;
+
+    }
+    .employee_name_style{
+        font-size: 20px;
+    }
+    .employee_job_style{
+        font-size: 15px;
+    }
+}
+
+/*.radio-container input[type="radio"] {*/
+/*    display: none; !* Hide the actual radio button *!*/
+/*}*/
+
+/*.radio-container label.form1-label-colors::before {*/
+/*    content: '';*/
+/*    display: inline-block;*/
+/*    width: 20px; !* Adjust size as needed *!*/
+/*    height: 20px; !* Adjust size as needed *!*/
+/*    border: 2px solid red; !* Default outer color *!*/
+/*    border-radius: 50%; !* Make it circular *!*/
+/*    margin-right: 10px; !* Adjust spacing as needed *!*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*.radio-container input[type="radio"]:checked + label.form1-label-colors::before {*/
+/*    border-color: blue; !* Change outer color when checked *!*/
+/*}*/
+
+/*.color2{*/
+/*    border-color: #ff3333;*/
+/*}*/
+
+
+.nav-link {
+color: #8E8E8E;
+}
+
+#overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none;
+        }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_all_job_requests" name="Requisition Requests" customize_show="True" priority="30">
+        <t t-call="web.layout">
+            <t t-set="title">Requisition Requests</t>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="/kyan_employee_portal/static/src/css/forms_design.css"/>
+            </head>
+            <body>
+               <t t-call="kyan_employee_portal.portal_navigation"/>
+                <div class="content">
+                    <h4 class="ml-2 ml-md-5 mt-3 heading_text_control">Requisition Requests</h4>
+                    <p class="ml-2 ml-md-5 mt-n1 mt-md-0 subheading_text_control" style="color: #345E90;">Pending Requests</p>
+                    <hr/>
+                    <div class="mian_content mt-n2 mt-n2 mt-md-5 mt-md-5 ml-md-5">
+                        <div class="row">
+                            <div class="col d-flex justify-content-end mr-2 mr-md-0">
+                                <a t-attf-href="requisition_request/0">
+                                    <button type="button" class="btn btn-md mb-3"
+                                            style="background:#345E90; color:#fff;">
+                                        Create New Request
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table  table-hover table-responsive-sm">
+
+                                    <thead style="background:#345E90; color:#fff;">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Requested Position</th>
+                                            <th scope="col">Position Type</th>
+                                            <th scope="col">Manager</th>
+                                            <th scope="col">Grade</th>
+                                            <th scope="col">Expiry Date</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="data" t-as="details">
+                                            <tr>
+                                                <td class="align-middle" t-esc="details_index + 1"/>
+                                                <td class="align-middle"
+                                                    t-if="details.position_request == 'new_position'">New
+                                                    Position
+                                                </td>
+                                                <td class="align-middle"
+                                                    t-elif="details.position_request == 'replacement'">
+                                                    Replacement
+                                                </td>
+                                                <td class="align-middle"
+                                                    t-elif="details.position_request == 'part_time'">Part
+                                                    Time
+                                                </td>
+                                                <td class="align-middle"
+                                                    t-else="details.position_request == 'consultant'">
+                                                    Consultant
+                                                </td>
+                                                <td class="align-middle" t-if="details.position_type == 'academic'">
+                                                    Academic
+                                                </td>
+                                                <td class="align-middle"
+                                                    t-elif="details.position_type == 'research_or_post_doctoral'">
+                                                    Research /
+                                                    Post Doctoral
+                                                </td>
+                                                <td class="align-middle"
+                                                    t-elif="details.position_type == 'non_academic'">Non
+                                                    Academic
+                                                </td>
+                                                <td class="align-middle" t-else="details.position_type == 'student'">
+                                                    Student
+                                                </td>
+                                                <td class="align-middle" t-esc="details.manager_id.name"/>
+                                                <td class="align-middle" t-esc="details.grade_id.name"/>
+                                                <td class="align-middle" t-esc="details.form_expiry_date"/>
+                                                <td class="align-middle">
+                                                    <span t-esc="details.position_state"
+                                                          class="badge badge-pill badge-info px-2 py-2"/>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a t-attf-href="/requisition_request/#{details.id}"
+                                                       class="btn btn-sm btn-success mt-auto">View
+                                                    </a>
+<!--                                                    t-att-href="'/requisition_request/' + str(details.id)"-->
+
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!--                <script type="text/javascript" src="sideNav.js"/>-->
+            </body>
+        </t>
+    </template>
+</odoo>
+

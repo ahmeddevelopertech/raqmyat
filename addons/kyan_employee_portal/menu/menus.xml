@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_configuration_employee_portal"
+              name="Portal Configuration"
+              sequence="10"/>
+    <menuitem id="menu_configuration_employee_portal_configuration"
+              name="Configuration"
+              parent="menu_configuration_employee_portal"
+              sequence="10"/>
+
+</odoo>
